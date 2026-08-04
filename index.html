@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
+    <defs>
+        <!-- Background Gradient -->
+        <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2a2828" />
+            <stop offset="100%" stop-color="#141313" />
+        </radialGradient>
+
+        <!-- Orange Circle Gradient -->
+        <radialGradient id="orangeGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#d95f3f" />
+            <stop offset="100%" stop-color="#b34228" />
+        </radialGradient>
+
+        <!-- Gold Gradient for Base -->
+        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fce181" />
+            <stop offset="50%" stop-color="#edc24c" />
+            <stop offset="100%" stop-color="#c99a25" />
+        </linearGradient>
+
+        <!-- Gold Gradient for Crown -->
+        <linearGradient id="crownGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fce181" />
+            <stop offset="100%" stop-color="#d6a82e" />
+        </linearGradient>
+
+        <!-- Dark Tone for Face/Shadows -->
+        <linearGradient id="darkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2b211e" />
+            <stop offset="100%" stop-color="#110d0c" />
+        </linearGradient>
+    </defs>
+
+    <!-- Background -->
+    <rect x="0" y="0" width="1000" height="1000" fill="url(#bgGrad)" />
+
+    <!-- Outer White Border -->
+    <circle cx="500" cy="500" r="450" fill="#fcfbf9" />
+
+    <!-- Inner Orange Circle -->
+    <circle cx="500" cy="500" r="430" fill="url(#orangeGrad)" />
+
+    <!-- ========================================== -->
+    <!-- TOP WHITE GRAPHIC (CROWN & ARCH)             -->
+    <!-- ========================================== -->
+    <g fill="#fcfbf9">
+        <!-- Top Crown Points -->
+        <path d="M 470 200 L 485 150 L 500 180 L 515 150 L 530 200 L 510 205 L 500 195 L 490 205 Z" />
+        <!-- Crown Base Lines -->
+        <rect x="465" y="210" width="70" height="15" rx="5" />
+        <rect x="460" y="230" width="80" height="12" rx="4" />
+        
+        <!-- Main Arch/Shield Structure -->
+        <path d="M 360 410 L 360 300 L 410 300 L 410 260 L 460 260 L 460 300 L 500 350 L 540 300 L 540 260 L 590 260 L 590 300 L 640 300 L 640 410 L 600 410 L 600 320 L 560 320 L 500 390 L 440 320 L 400 320 L 400 410 Z" />
+        
+        <!-- Arch Bottom Curve -->
+        <path d="M 380 400 Q 500 550 620 400 L 600 410 Q 500 580 400 410 Z" />
+    </g>
+
+    <!-- Small Top-Left Doodle/Squiggle -->
+    <g fill="#fcfbf9">
+        <path d="M 370 240 Q 380 230 390 240 Q 395 250 385 255 Q 375 260 370 250 Q 365 240 375 235 Z" />
+        <circle cx="380" cy="265" r="4" />
+        <circle cx="372" cy="270" r="3" />
+        <circle cx="388" cy="268" r="2" />
+        <path d="M 375 280 L 385 275 L 390 285 L 380 290 Z" />
+    </g>
+
+    <!-- ========================================== -->
+    <!-- CENTRAL ILLUSTRATION (KING CHESS PIECE)      -->
+    <!-- ========================================== -->
+    <g>
+        <!-- Gold Base (Bottom) -->
+        <path d="M 410 620 Q 410 660 450 670 L 550 670 Q 590 660 590 620 L 580 600 L 570 580 L 430 580 L 420 600 Z" fill="url(#goldGrad)" />
+        <!-- Base Top Rim -->
+        <ellipse cx="500" cy="580" rx="70" ry="15" fill="#fce181" />
+        <ellipse cx="500" cy="580" rx="65" ry="12" fill="#d6a82e" />
+        
+        <!-- Base Red Dots -->
+        <circle cx="475" cy="605" r="8" fill="#d93838" />
+        <circle cx="500" cy="615" r="9" fill="#d93838" />
+        <circle cx="525" cy="605" r="8" fill="#d93838" />
+
+        <!-- Base Shadow/Line -->
+        <path d="M 415 625 Q 500 680 585 625" fill="none" stroke="#8c6918" stroke-width="4" stroke-linecap="round" />
+
+        <!-- Body/Suit (Dark) -->
+        <path d="M 450 500 L 460 580 L 540 580 L 550 500 L 520 470 L 480 470 Z" fill="url(#darkGrad)" />
+        
+        <!-- White Collar / Shirt -->
+        <path d="M 480 470 L 500 510 L 520 470 L 510 460 L 490 460 Z" fill="#fcfbf9" />
+        <!-- Collar details -->
+        <path d="M 485 475 L 500 505 L 515 475" fill="none" stroke="#cccccc" stroke-width="2" />
+        <path d="M 500 505 L 500 535" fill="none" stroke="#cccccc" stroke-width="2" />
+
+        <!-- Face / Head Outline (Dark) -->
+        <path d="M 465 430 Q 465 380 500 370 Q 535 380 535 430 Q 540 470 510 490 L 500 500 L 490 490 Q 460 470 465 430 Z" fill="url(#darkGrad)" />
+
+        <!-- Face Skin Tone (Slightly lighter) -->
+        <path d="M 475 430 Q 475 390 500 385 Q 525 390 525 430 Q 525 460 505 475 L 500 480 L 495 475 Q 475 460 475 430 Z" fill="#c99a25" opacity="0.8" />
+        <!-- Actually, let's use a nice skin tone -->
+        <path d="M 478 425 Q 478 395 500 390 Q 522 395 522 425 Q 522 455 505 470 L 500 475 L 495 470 Q 478 455 478 425 Z" fill="#e8c378" />
+
+        <!-- Facial Features -->
+        <!-- Eyes -->
+        <ellipse cx="490" cy="415" rx="5" ry="3" fill="#2b211e" />
+        <ellipse cx="510" cy="415" rx="5" ry="3" fill="#2b211e" />
+        <!-- Eyebrows -->
+        <path d="M 482 408 Q 490 403 498 408" fill="none" stroke="#2b211e" stroke-width="3" stroke-linecap="round" />
+        <path d="M 502 408 Q 510 403 518 408" fill="none" stroke="#2b211e" stroke-width="3" stroke-linecap="round" />
+        
+        <!-- Nose -->
+        <path d="M 500 420 L 497 440 L 503 440 Z" fill="#b38a52" />
+        <circle cx="497" cy="442" r="3" fill="#b38a52" />
+        <circle cx="503" cy="442" r="3" fill="#b38a52" />
+
+        <!-- Mustache -->
+        <path d="M 480 455 Q 490 460 500 455 Q 510 460 520 455 Q 510 470 500 465 Q 490 470 480 455 Z" fill="#2b211e" />
+
+        <!-- Beard / Jawline details -->
+        <path d="M 485 465 Q 500 490 515 465" fill="none" stroke="#2b211e" stroke-width="3" />
+        <path d="M 490 475 L 500 485 L 510 475" fill="none" stroke="#2b211e" stroke-width="2" />
+
+        <!-- King's Crown on Head -->
+        <path d="M 475 390 L 480 350 L 495 375 L 500 340 L 505 375 L 520 350 L 525 390 L 515 395 L 500 388 L 485 395 Z" fill="url(#crownGrad)" />
+        <!-- Crown Jewels (Red) -->
+        <circle cx="480" cy="370" r="4" fill="#d93838" />
+        <circle cx="500" cy="360" r="5" fill="#d93838" />
+        <circle cx="520" cy="370" r="4" fill="#d93838" />
+        <!-- Crown Base -->
+        <rect x="478" y="390" width="44" height="6" rx="3" fill="#d6a82e" />
+        <rect x="475" y="396" width="50" height="4" rx="2" fill="#c99a25" />
+    </g>
+
+    <!-- ========================================== -->
+    <!-- TEXT                                         -->
+    <!-- ========================================== -->
+    <text x="500" y="790" fill="#fcfbf9" font-family="Arial, Helvetica, sans-serif" font-size="85" font-weight="bold" text-anchor="middle" letter-spacing="2">RK CHESS</text>
+    <text x="500" y="860" fill="#fcfbf9" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="normal" text-anchor="middle" letter-spacing="4">ACADEMY</text>
+
+</svg>
