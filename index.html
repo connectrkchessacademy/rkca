@@ -1,142 +1,1706 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
-    <defs>
-        <!-- Background Gradient -->
-        <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#2a2828" />
-            <stop offset="100%" stop-color="#141313" />
-        </radialGradient>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
 
-        <!-- Orange Circle Gradient -->
-        <radialGradient id="orangeGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#d95f3f" />
-            <stop offset="100%" stop-color="#b34228" />
-        </radialGradient>
+    <meta property="og:title" content="RK Chess Academy - Master the Mind, Make Your Move!">
+    <meta property="og:description" content="Unlock your true potential and master the art of chess with expert guidance. Structured training for all levels. Join our vibrant community today!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rkchessacademy.com">
+    <meta property="og:image" content="rklogo.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:site_name" content="RK Chess Academy">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RK Chess Academy - Master the Mind, Make Your Move!">
+    <meta name="twitter:description" content="Unlock your true potential and master the art of chess with expert guidance. Join our vibrant community today!">
+    <meta name="twitter:image" content="rklogo.jpg">
+    <meta name="description" content="RK Chess Academy - Professional chess coaching for students, young minds, adults, and professionals. Expert mentorship, structured training, and a thriving community. Master the Mind, Make Your Move!">
 
-        <!-- Gold Gradient for Base -->
-        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#fce181" />
-            <stop offset="50%" stop-color="#edc24c" />
-            <stop offset="100%" stop-color="#c99a25" />
-        </linearGradient>
+    <title>RK Chess Academy - Master the Mind, Make Your Move!</title>
 
-        <!-- Gold Gradient for Crown -->
-        <linearGradient id="crownGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#fce181" />
-            <stop offset="100%" stop-color="#d6a82e" />
-        </linearGradient>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <!-- Dark Tone for Face/Shadows -->
-        <linearGradient id="darkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#2b211e" />
-            <stop offset="100%" stop-color="#110d0c" />
-        </linearGradient>
-    </defs>
+    <style>
+        :root {
+            --bg-pure-black: #000000;
+            --text-white: #ffffff;
+            --highlight-dark-green: #0a4a0a;
+            --highlight-dark-green-border: #0d5c0d;
+            --button-dark-blue: #0b2d5e;
+            --button-dark-blue-hover: #0f3d7e;
+            --button-dark-blue-active: #082048;
+            --button-founder-bg: #1a1a2e;
+            --button-founder-hover: #25254a;
+            --button-founder-active: #0f0f1e;
+            --overlay-bg: rgba(0, 0, 0, 0.97);
+            --popup-card-bg: #0a0a0a;
+            --border-thick-white: #ffffff;
+            --youtube-red: #ff0000;
+            --whatsapp-green: #25d366;
+            --instagram-pink: #e4405f;
+            --gold-gradient-1: #fffbeb;
+            --gold-gradient-2: #d4af37;
+            --gold-gradient-3: #4a3000;
+            --gold-gradient-4: #f3c300;
+            --register-gold: #c9973a;
+            --register-gold-hover: #d4a843;
+            --register-gold-active: #a67c2a;
+            --subtle-gray: #aaaaaa;
+            --legal-text-color: #999999;
+            --divider-gray: #333333;
+            --wiki-border: #3a3a3a;
+            --wiki-bg-card: #111111;
+            --wiki-accent: #c9973a;
+            --verification-bg: #0f1a0f;
+            --verification-border: #2a5a2a;
+        }
 
-    <!-- Background -->
-    <rect x="0" y="0" width="1000" height="1000" fill="url(#bgGrad)" />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Outer White Border -->
-    <circle cx="500" cy="500" r="450" fill="#fcfbf9" />
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            scroll-behavior: smooth;
+            height: 100%;
+        }
 
-    <!-- Inner Orange Circle -->
-    <circle cx="500" cy="500" r="430" fill="url(#orangeGrad)" />
+        body {
+            background-color: var(--bg-pure-black);
+            color: var(--text-white);
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
 
-    <!-- ========================================== -->
-    <!-- TOP WHITE GRAPHIC (CROWN & ARCH)             -->
-    <!-- ========================================== -->
-    <g fill="#fcfbf9">
-        <!-- Top Crown Points -->
-        <path d="M 470 200 L 485 150 L 500 180 L 515 150 L 530 200 L 510 205 L 500 195 L 490 205 Z" />
-        <!-- Crown Base Lines -->
-        <rect x="465" y="210" width="70" height="15" rx="5" />
-        <rect x="460" y="230" width="80" height="12" rx="4" />
-        
-        <!-- Main Arch/Shield Structure -->
-        <path d="M 360 410 L 360 300 L 410 300 L 410 260 L 460 260 L 460 300 L 500 350 L 540 300 L 540 260 L 590 260 L 590 300 L 640 300 L 640 410 L 600 410 L 600 320 L 560 320 L 500 390 L 440 320 L 400 320 L 400 410 Z" />
-        
-        <!-- Arch Bottom Curve -->
-        <path d="M 380 400 Q 500 550 620 400 L 600 410 Q 500 580 400 410 Z" />
-    </g>
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #444444;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #666666;
+        }
 
-    <!-- Small Top-Left Doodle/Squiggle -->
-    <g fill="#fcfbf9">
-        <path d="M 370 240 Q 380 230 390 240 Q 395 250 385 255 Q 375 260 370 250 Q 365 240 375 235 Z" />
-        <circle cx="380" cy="265" r="4" />
-        <circle cx="372" cy="270" r="3" />
-        <circle cx="388" cy="268" r="2" />
-        <path d="M 375 280 L 385 275 L 390 285 L 380 290 Z" />
-    </g>
+        /* News Ticker */
+        .news-ticker {
+            width: 100%;
+            background-color: var(--highlight-dark-green);
+            color: var(--text-white);
+            padding: 10px 0;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--highlight-dark-green-border);
+            display: flex;
+            align-items: center;
+        }
+        .ticker-content {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: tickerScroll 20s linear infinite;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .ticker-logo {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            object-fit: cover;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        @keyframes tickerScroll {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
 
-    <!-- ========================================== -->
-    <!-- CENTRAL ILLUSTRATION (KING CHESS PIECE)      -->
-    <!-- ========================================== -->
-    <g>
-        <!-- Gold Base (Bottom) -->
-        <path d="M 410 620 Q 410 660 450 670 L 550 670 Q 590 660 590 620 L 580 600 L 570 580 L 430 580 L 420 600 Z" fill="url(#goldGrad)" />
-        <!-- Base Top Rim -->
-        <ellipse cx="500" cy="580" rx="70" ry="15" fill="#fce181" />
-        <ellipse cx="500" cy="580" rx="65" ry="12" fill="#d6a82e" />
-        
-        <!-- Base Red Dots -->
-        <circle cx="475" cy="605" r="8" fill="#d93838" />
-        <circle cx="500" cy="615" r="9" fill="#d93838" />
-        <circle cx="525" cy="605" r="8" fill="#d93838" />
+        /* Main Container */
+        .main-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 24px 20px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            z-index: 1;
+            min-height: calc(100vh - 42px);
+            min-height: calc(100dvh - 42px);
+        }
 
-        <!-- Base Shadow/Line -->
-        <path d="M 415 625 Q 500 680 585 625" fill="none" stroke="#8c6918" stroke-width="4" stroke-linecap="round" />
+        /* Logo */
+        .logo-wrapper {
+            width: 140px;
+            height: 140px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #111111;
+            border: 2px solid #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 28px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .logo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .logo-placeholder-fallback {
+            color: #555;
+            font-size: 0.75rem;
+            text-align: center;
+            padding: 10px;
+            letter-spacing: 0.5px;
+        }
 
-        <!-- Body/Suit (Dark) -->
-        <path d="M 450 500 L 460 580 L 540 580 L 550 500 L 520 470 L 480 470 Z" fill="url(#darkGrad)" />
-        
-        <!-- White Collar / Shirt -->
-        <path d="M 480 470 L 500 510 L 520 470 L 510 460 L 490 460 Z" fill="#fcfbf9" />
-        <!-- Collar details -->
-        <path d="M 485 475 L 500 505 L 515 475" fill="none" stroke="#cccccc" stroke-width="2" />
-        <path d="M 500 505 L 500 535" fill="none" stroke="#cccccc" stroke-width="2" />
+        /* Animated Gradient Header */
+        .gradient-header {
+            font-size: 1.65rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: -0.3px;
+            line-height: 1.25;
+            margin-bottom: 18px;
+            background: linear-gradient(135deg,
+                    var(--gold-gradient-1) 0%,
+                    var(--gold-gradient-2) 20%,
+                    var(--gold-gradient-3) 40%,
+                    var(--gold-gradient-4) 55%,
+                    var(--gold-gradient-1) 70%,
+                    var(--gold-gradient-2) 85%,
+                    var(--gold-gradient-3) 100%);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4.5s ease-in-out infinite;
+            word-wrap: break-word;
+            max-width: 100%;
+        }
 
-        <!-- Face / Head Outline (Dark) -->
-        <path d="M 465 430 Q 465 380 500 370 Q 535 380 535 430 Q 540 470 510 490 L 500 500 L 490 490 Q 460 470 465 430 Z" fill="url(#darkGrad)" />
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 50% 25%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            75% {
+                background-position: 50% 75%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
 
-        <!-- Face Skin Tone (Slightly lighter) -->
-        <path d="M 475 430 Q 475 390 500 385 Q 525 390 525 430 Q 525 460 505 475 L 500 480 L 495 475 Q 475 460 475 430 Z" fill="#c99a25" opacity="0.8" />
-        <!-- Actually, let's use a nice skin tone -->
-        <path d="M 478 425 Q 478 395 500 390 Q 522 395 522 425 Q 522 455 505 470 L 500 475 L 495 470 Q 478 455 478 425 Z" fill="#e8c378" />
+        /* Welcome Text */
+        .welcome-text {
+            font-size: 0.95rem;
+            font-weight: 400;
+            text-align: center;
+            color: var(--text-white);
+            line-height: 1.7;
+            margin-bottom: 16px;
+            max-width: 520px;
+            padding: 0 4px;
+            letter-spacing: 0.1px;
+        }
 
-        <!-- Facial Features -->
-        <!-- Eyes -->
-        <ellipse cx="490" cy="415" rx="5" ry="3" fill="#2b211e" />
-        <ellipse cx="510" cy="415" rx="5" ry="3" fill="#2b211e" />
-        <!-- Eyebrows -->
-        <path d="M 482 408 Q 490 403 498 408" fill="none" stroke="#2b211e" stroke-width="3" stroke-linecap="round" />
-        <path d="M 502 408 Q 510 403 518 408" fill="none" stroke="#2b211e" stroke-width="3" stroke-linecap="round" />
-        
-        <!-- Nose -->
-        <path d="M 500 420 L 497 440 L 503 440 Z" fill="#b38a52" />
-        <circle cx="497" cy="442" r="3" fill="#b38a52" />
-        <circle cx="503" cy="442" r="3" fill="#b38a52" />
+        /* Highlight Box */
+        .highlight-box {
+            background-color: var(--highlight-dark-green);
+            border: 1.5px solid var(--highlight-dark-green-border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            text-align: center;
+            margin-bottom: 22px;
+            max-width: 520px;
+            width: 100%;
+            box-shadow: 0 2px 12px rgba(10, 74, 10, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+        .highlight-box .highlight-text {
+            color: var(--text-white);
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            line-height: 1.5;
+            margin: 0;
+        }
 
-        <!-- Mustache -->
-        <path d="M 480 455 Q 490 460 500 455 Q 510 460 520 455 Q 510 470 500 465 Q 490 470 480 455 Z" fill="#2b211e" />
+        /* Buttons Core */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--button-dark-blue);
+            color: var(--text-white);
+            border: none;
+            border-radius: 28px;
+            padding: 14px 28px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            text-decoration: none;
+            min-height: 50px;
+            min-width: 120px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 14px rgba(11, 45, 94, 0.4);
+            position: relative;
+            overflow: hidden;
+            outline: none;
+            -webkit-user-select: none;
+            user-select: none;
+            white-space: nowrap;
+        }
+        .btn:active {
+            background-color: var(--button-dark-blue-active);
+            transform: scale(0.96);
+            box-shadow: 0 2px 6px rgba(11, 45, 94, 0.5);
+            transition: transform 0.08s ease, background-color 0.05s ease;
+        }
+        .btn:hover {
+            background-color: var(--button-dark-blue-hover);
+            box-shadow: 0 6px 20px rgba(11, 45, 94, 0.55);
+        }
+        .btn:focus-visible {
+            outline: 2px solid rgba(255, 255, 255, 0.7);
+            outline-offset: 3px;
+        }
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+        .btn:active::after {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+            transition: width 0s, height 0s, opacity 0.3s ease;
+        }
 
-        <!-- Beard / Jawline details -->
-        <path d="M 485 465 Q 500 490 515 465" fill="none" stroke="#2b211e" stroke-width="3" />
-        <path d="M 490 475 L 500 485 L 510 475" fill="none" stroke="#2b211e" stroke-width="2" />
+        .btn-learn-more {
+            margin-bottom: 14px;
+            font-size: 1rem;
+            padding: 15px 34px;
+            letter-spacing: 0.5px;
+        }
 
-        <!-- King's Crown on Head -->
-        <path d="M 475 390 L 480 350 L 495 375 L 500 340 L 505 375 L 520 350 L 525 390 L 515 395 L 500 388 L 485 395 Z" fill="url(#crownGrad)" />
-        <!-- Crown Jewels (Red) -->
-        <circle cx="480" cy="370" r="4" fill="#d93838" />
-        <circle cx="500" cy="360" r="5" fill="#d93838" />
-        <circle cx="520" cy="370" r="4" fill="#d93838" />
-        <!-- Crown Base -->
-        <rect x="478" y="390" width="44" height="6" rx="3" fill="#d6a82e" />
-        <rect x="475" y="396" width="50" height="4" rx="2" fill="#c99a25" />
-    </g>
+        /* Founder's Profile Button */
+        .btn-founder-profile {
+            background-color: var(--button-founder-bg);
+            box-shadow: 0 4px 14px rgba(26, 26, 46, 0.5);
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+            padding: 14px 28px;
+            letter-spacing: 0.4px;
+            border: 1.5px solid rgba(200, 160, 60, 0.45);
+            gap: 7px;
+        }
+        .btn-founder-profile:hover {
+            background-color: var(--button-founder-hover);
+            box-shadow: 0 6px 20px rgba(26, 26, 46, 0.65);
+            border-color: rgba(200, 160, 60, 0.7);
+        }
+        .btn-founder-profile:active {
+            background-color: var(--button-founder-active);
+            border-color: rgba(200, 160, 60, 0.8);
+        }
+        .btn-founder-profile i {
+            font-size: 0.85rem;
+            color: #c9973a;
+        }
 
-    <!-- ========================================== -->
-    <!-- TEXT                                         -->
-    <!-- ========================================== -->
-    <text x="500" y="790" fill="#fcfbf9" font-family="Arial, Helvetica, sans-serif" font-size="85" font-weight="bold" text-anchor="middle" letter-spacing="2">RK CHESS</text>
-    <text x="500" y="860" fill="#fcfbf9" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="normal" text-anchor="middle" letter-spacing="4">ACADEMY</text>
+        /* Social Media Section */
+        .social-section-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-white);
+            text-align: center;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
 
-</svg>
+        .social-icons-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 18px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .social-icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.6rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            outline: none;
+            flex-shrink: 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            border: 2px solid transparent;
+        }
+        .social-icon-btn:active {
+            transform: scale(0.9);
+            transition: transform 0.08s ease;
+        }
+        .social-icon-btn:focus-visible {
+            outline: 2px solid rgba(255, 255, 255, 0.7);
+            outline-offset: 3px;
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        .social-icon-btn.youtube {
+            background-color: #1a1a1a;
+            color: var(--youtube-red);
+            border-color: rgba(255, 0, 0, 0.35);
+        }
+        .social-icon-btn.youtube:hover {
+            box-shadow: 0 6px 24px rgba(255, 0, 0, 0.4);
+            border-color: rgba(255, 0, 0, 0.7);
+            filter: brightness(1.1);
+        }
+        .social-icon-btn.whatsapp {
+            background-color: #1a1a1a;
+            color: var(--whatsapp-green);
+            border-color: rgba(37, 211, 102, 0.35);
+        }
+        .social-icon-btn.whatsapp:hover {
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+            border-color: rgba(37, 211, 102, 0.7);
+            filter: brightness(1.1);
+        }
+        .social-icon-btn.instagram {
+            background-color: #1a1a1a;
+            color: var(--instagram-pink);
+            border-color: rgba(228, 64, 95, 0.35);
+        }
+        .social-icon-btn.instagram:hover {
+            box-shadow: 0 6px 24px rgba(228, 64, 95, 0.4);
+            border-color: rgba(228, 64, 95, 0.7);
+            filter: brightness(1.1);
+        }
+
+        .social-label-mini {
+            font-size: 0.65rem;
+            color: #cccccc;
+            text-align: center;
+            letter-spacing: 0.3px;
+            margin-top: 2px;
+            pointer-events: none;
+        }
+        .social-item-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Chat & Email Buttons */
+        .btn-chat {
+            background-color: #0d5c2e;
+            box-shadow: 0 4px 14px rgba(13, 92, 46, 0.4);
+            margin-bottom: 16px;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        .btn-chat:hover {
+            background-color: #0f6e37;
+            box-shadow: 0 6px 20px rgba(13, 92, 46, 0.55);
+        }
+        .btn-chat:active {
+            background-color: #0a4522;
+        }
+        .btn-chat i {
+            font-size: 1.2rem;
+        }
+        .btn-email {
+            background-color: #8b0000;
+            box-shadow: 0 4px 14px rgba(139, 0, 0, 0.4);
+            margin-bottom: 28px;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        .btn-email:hover {
+            background-color: #a50000;
+            box-shadow: 0 6px 20px rgba(139, 0, 0, 0.55);
+        }
+        .btn-email:active {
+            background-color: #660000;
+        }
+        .btn-email i {
+            font-size: 1.2rem;
+        }
+
+        /* Register Now Button (inside popup) */
+        .btn-register-now {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #b8860b, #c9973a, #d4a843);
+            color: #000000;
+            border: none;
+            border-radius: 28px;
+            padding: 15px 30px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            cursor: pointer;
+            text-decoration: none;
+            min-height: 50px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 18px rgba(200, 150, 50, 0.45);
+            position: relative;
+            overflow: hidden;
+            outline: none;
+            -webkit-user-select: none;
+            user-select: none;
+            white-space: nowrap;
+            width: 100%;
+            max-width: 340px;
+            align-self: center;
+            margin: 20px auto 10px;
+        }
+        .btn-register-now:hover {
+            background: linear-gradient(135deg, #c9973a, #d4a843, #e0b84c);
+            box-shadow: 0 6px 24px rgba(200, 150, 50, 0.6);
+            transform: translateY(-1px);
+        }
+        .btn-register-now:active {
+            background: linear-gradient(135deg, #a67c2a, #b8860b, #c9973a);
+            transform: scale(0.96);
+            box-shadow: 0 2px 8px rgba(180, 130, 40, 0.5);
+            transition: transform 0.08s ease;
+        }
+        .btn-register-now:focus-visible {
+            outline: 2px solid rgba(255, 255, 255, 0.8);
+            outline-offset: 3px;
+        }
+        .btn-register-now i {
+            font-size: 1rem;
+            color: #000000;
+        }
+
+        /* Thick White Border */
+        .thick-white-border {
+            width: 85%;
+            max-width: 450px;
+            height: 0;
+            border: none;
+            border-top: 3.5px solid var(--border-thick-white);
+            margin: 8px auto 24px;
+            opacity: 0.9;
+            border-radius: 2px;
+        }
+
+        /* Legal Section */
+        .legal-section {
+            width: 100%;
+            max-width: 520px;
+            text-align: left;
+            padding: 0 4px;
+        }
+        .legal-heading {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-white);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .legal-text {
+            font-size: 0.7rem;
+            color: var(--legal-text-color);
+            line-height: 1.55;
+            margin-bottom: 6px;
+            letter-spacing: 0.2px;
+        }
+        .legal-text a {
+            color: #bbbbbb;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .legal-text a:hover,
+        .legal-text a:active {
+            color: #ffffff;
+        }
+        .copyright-block {
+            margin-top: 14px;
+            padding-top: 10px;
+            border-top: 1px solid var(--divider-gray);
+            text-align: center;
+        }
+        .copyright-text {
+            font-size: 0.68rem;
+            color: var(--legal-text-color);
+            letter-spacing: 0.3px;
+            line-height: 1.6;
+            margin-bottom: 2px;
+        }
+
+        /* Attribution */
+        .attribution-section {
+            width: 100%;
+            max-width: 520px;
+            text-align: center;
+            padding: 0 4px;
+            margin-top: 16px;
+        }
+        .attribution-text {
+            font-size: 0.65rem;
+            color: #777777;
+            line-height: 1.5;
+            letter-spacing: 0.2px;
+        }
+        .attribution-text a {
+            color: #aaaaaa;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .attribution-text a:hover,
+        .attribution-text a:active {
+            color: #ffffff;
+        }
+
+        /* ==================== FULL SCREEN POPUP (Learn More) ==================== */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            height: 100dvh;
+            background: var(--overlay-bg);
+            z-index: 9999;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            -webkit-overflow-scrolling: touch;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+        }
+        .popup-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .popup-content-wrapper {
+            width: 100%;
+            max-width: 600px;
+            min-height: 100vh;
+            min-height: 100dvh;
+            padding: 28px 20px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            background: var(--popup-card-bg);
+            position: relative;
+            overscroll-behavior: contain;
+        }
+
+        .popup-heading {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-white);
+            text-align: center;
+            margin-bottom: 16px;
+            letter-spacing: -0.2px;
+            line-height: 1.3;
+            background: linear-gradient(135deg, #f0d78c, #d4a843, #e8c565, #c9973a);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s ease-in-out infinite;
+        }
+        .popup-paragraph {
+            font-size: 0.9rem;
+            color: #dddddd;
+            line-height: 1.7;
+            margin-bottom: 14px;
+            text-align: center;
+            letter-spacing: 0.1px;
+        }
+        .popup-subheading {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-white);
+            text-align: center;
+            margin: 20px 0 12px;
+            letter-spacing: 0.2px;
+        }
+        .popup-subsection-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #c8e6c9;
+            margin-top: 10px;
+            margin-bottom: 4px;
+            letter-spacing: 0.3px;
+        }
+        .popup-subsection-text {
+            font-size: 0.82rem;
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            letter-spacing: 0.1px;
+        }
+        .popup-tagline {
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #d4e8d4;
+            margin: 18px 0 6px;
+            padding: 12px 16px;
+            background: rgba(10, 74, 10, 0.5);
+            border-radius: 10px;
+            letter-spacing: 0.3px;
+            border: 1px solid rgba(13, 92, 13, 0.5);
+        }
+
+        .popup-back-btn-wrapper {
+            position: sticky;
+            bottom: 16px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 12px 0 8px;
+            background: linear-gradient(to top, rgba(10, 10, 10, 1) 60%, rgba(10, 10, 10, 0) 100%);
+            z-index: 10;
+            margin-top: auto;
+        }
+        .btn-back-home {
+            font-size: 0.9rem;
+            padding: 13px 26px;
+            letter-spacing: 0.4px;
+            gap: 6px;
+        }
+
+        /* ==================== FOUNDER PROFILE POPUP ==================== */
+        .founder-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            height: 100dvh;
+            background: var(--overlay-bg);
+            z-index: 10000;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            -webkit-overflow-scrolling: touch;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+        }
+        .founder-popup-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .founder-popup-wrapper {
+            width: 100%;
+            max-width: 600px;
+            min-height: 100vh;
+            min-height: 100dvh;
+            padding: 28px 20px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            background: var(--popup-card-bg);
+            position: relative;
+            overscroll-behavior: contain;
+        }
+
+        /* Wikipedia-style Infobox */
+        .wiki-infobox {
+            width: 100%;
+            max-width: 500px;
+            align-self: center;
+            background: var(--wiki-bg-card);
+            border: 2px solid var(--wiki-border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        .wiki-infobox-header {
+            background: #1a1a1a;
+            padding: 14px 16px;
+            text-align: center;
+            border-bottom: 1.5px solid var(--wiki-border);
+        }
+        .wiki-infobox-header .wiki-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.1px;
+            margin-bottom: 3px;
+        }
+        .wiki-infobox-header .wiki-designation {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: #c9973a;
+            letter-spacing: 0.2px;
+            font-style: italic;
+        }
+        .wiki-infobox-body {
+            padding: 6px 0;
+        }
+        .wiki-infobox-row {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 9px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            gap: 12px;
+            transition: background 0.2s ease;
+        }
+        .wiki-infobox-row:last-child {
+            border-bottom: none;
+        }
+        .wiki-infobox-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #aaaaaa;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+            min-width: 100px;
+            padding-top: 1px;
+        }
+        .wiki-infobox-value {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #e0e0e0;
+            letter-spacing: 0.1px;
+            line-height: 1.45;
+            word-break: break-word;
+        }
+        .wiki-infobox-value a {
+            color: #c9973a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.2s ease;
+        }
+        .wiki-infobox-value a:hover {
+            color: #e0b84c;
+        }
+        .wiki-infobox-subheader {
+            background: #151515;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #c9973a;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border-top: 1.5px solid var(--wiki-border);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+        .wiki-flag-emoji {
+            font-size: 1.1rem;
+            margin-left: 2px;
+            vertical-align: -1px;
+        }
+
+        /* Founder Content Sections */
+        .founder-section {
+            width: 100%;
+            max-width: 500px;
+            align-self: center;
+            margin-bottom: 16px;
+        }
+        .founder-section h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: 0.2px;
+            border-bottom: 1.5px solid #333333;
+            padding-bottom: 6px;
+        }
+        .founder-section p {
+            font-size: 0.85rem;
+            color: #cccccc;
+            line-height: 1.7;
+            letter-spacing: 0.1px;
+            margin-bottom: 8px;
+        }
+
+        /* Verification Box */
+        .verification-box {
+            width: 100%;
+            max-width: 500px;
+            align-self: center;
+            background: var(--verification-bg);
+            border: 1.5px solid var(--verification-border);
+            border-radius: 10px;
+            padding: 16px 18px;
+            margin: 10px 0 6px;
+            text-align: center;
+        }
+        .verification-box .verification-icon {
+            font-size: 1.5rem;
+            color: #4caf50;
+            margin-bottom: 6px;
+        }
+        .verification-box .verification-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #c8e6c9;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .verification-box .verification-text {
+            font-size: 0.72rem;
+            color: #aaaaaa;
+            line-height: 1.55;
+            letter-spacing: 0.2px;
+            font-style: italic;
+        }
+
+        /* Founder Back Button */
+        .founder-back-btn-wrapper {
+            position: sticky;
+            bottom: 16px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 12px 0 8px;
+            background: linear-gradient(to top, rgba(10, 10, 10, 1) 60%, rgba(10, 10, 10, 0) 100%);
+            z-index: 10;
+            margin-top: auto;
+        }
+        .btn-back-home-founder {
+            font-size: 0.9rem;
+            padding: 13px 26px;
+            letter-spacing: 0.4px;
+            gap: 6px;
+        }
+
+        /* Lock body scroll */
+        body.no-scroll {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media screen and (min-width: 420px) {
+            .gradient-header {
+                font-size: 1.85rem;
+            }
+            .welcome-text {
+                font-size: 1rem;
+            }
+            .logo-wrapper {
+                width: 160px;
+                height: 160px;
+            }
+            .social-icon-btn {
+                width: 62px;
+                height: 62px;
+                font-size: 1.8rem;
+            }
+            .btn {
+                font-size: 1rem;
+                padding: 15px 30px;
+                min-height: 52px;
+            }
+            .btn-learn-more {
+                font-size: 1.05rem;
+                padding: 16px 36px;
+            }
+            .btn-founder-profile {
+                font-size: 1rem;
+                padding: 15px 30px;
+            }
+            .wiki-infobox-label {
+                min-width: 120px;
+                font-size: 0.78rem;
+            }
+            .wiki-infobox-value {
+                font-size: 0.9rem;
+            }
+            .wiki-infobox-header .wiki-name {
+                font-size: 1.35rem;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            .main-container {
+                padding: 36px 32px 40px;
+            }
+            .gradient-header {
+                font-size: 2.1rem;
+            }
+            .welcome-text {
+                font-size: 1.05rem;
+            }
+            .logo-wrapper {
+                width: 180px;
+                height: 180px;
+                border-radius: 20px;
+            }
+            .popup-heading {
+                font-size: 1.6rem;
+            }
+            .popup-paragraph {
+                font-size: 0.95rem;
+            }
+            .social-icon-btn {
+                width: 66px;
+                height: 66px;
+                font-size: 1.9rem;
+            }
+            .wiki-infobox {
+                max-width: 480px;
+            }
+            .wiki-infobox-label {
+                min-width: 140px;
+                font-size: 0.8rem;
+            }
+            .wiki-infobox-value {
+                font-size: 0.92rem;
+            }
+        }
+
+        @media screen and (max-width: 350px) {
+            .gradient-header {
+                font-size: 1.4rem;
+            }
+            .welcome-text {
+                font-size: 0.85rem;
+            }
+            .logo-wrapper {
+                width: 110px;
+                height: 110px;
+                border-radius: 14px;
+            }
+            .btn {
+                font-size: 0.85rem;
+                padding: 12px 22px;
+                min-height: 44px;
+                border-radius: 24px;
+            }
+            .social-icon-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 1.35rem;
+            }
+            .social-icons-row {
+                gap: 10px;
+            }
+            .highlight-box {
+                padding: 12px 14px;
+            }
+            .highlight-box .highlight-text {
+                font-size: 0.9rem;
+            }
+            .wiki-infobox-row {
+                flex-direction: column;
+                gap: 2px;
+                padding: 8px 12px;
+            }
+            .wiki-infobox-label {
+                min-width: auto;
+                font-size: 0.7rem;
+            }
+            .wiki-infobox-value {
+                font-size: 0.8rem;
+            }
+            .wiki-infobox-header .wiki-name {
+                font-size: 1.05rem;
+            }
+            .wiki-infobox-header .wiki-designation {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .gradient-header {
+                animation: none;
+                background-position: 0% 50%;
+            }
+            .popup-heading {
+                animation: none;
+                background-position: 0% 50%;
+            }
+            .btn::after {
+                display: none;
+            }
+            .popup-overlay {
+                transition: opacity 0.1s ease;
+            }
+            .founder-popup-overlay {
+                transition: opacity 0.1s ease;
+            }
+            .ticker-content {
+                animation: none;
+                padding-left: 0;
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+                white-space: normal;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- News Ticker -->
+    <div class="news-ticker">
+        <div class="ticker-content">
+            <img src="rklogo.jpg" alt="RK Chess Academy Logo" class="ticker-logo" onerror="this.style.display='none';">
+            Welcome to RK Chess Academy's official website! Join our WhatsApp Channel to get live updates. Master the Mind, Make your Move!
+        </div>
+    </div>
+
+    <!-- ==================== MAIN PAGE ==================== -->
+    <main class="main-container" id="mainPage">
+
+        <!-- Logo -->
+        <div class="logo-wrapper" aria-label="RK Chess Academy Logo">
+            <img
+            src="rklogo.jpg"
+            alt="RK Chess Academy Logo"
+            loading="eager"
+            onerror="this.style.display='none';this.parentElement.querySelector('.logo-placeholder-fallback').style.display='flex';"
+            width="160"
+            height="160"
+            >
+            <span class="logo-placeholder-fallback" style="display:none;">RK Chess<br>Academy<br>Logo</span>
+        </div>
+
+        <!-- Animated Gradient Header -->
+        <h1 class="gradient-header">Welcome to RK Chess Academy!</h1>
+
+        <!-- Welcome Text -->
+        <p class="welcome-text">
+            Unlock your true potential and master the art of chess with expert guidance. Whether you are taking your very first steps or preparing for competitive tournaments, we provide structured training to sharpen your tactical vision and strategic thinking. Join our vibrant community of passionate learners and elevate your game to the next level.
+        </p>
+
+        <!-- Highlight Box -->
+        <div class="highlight-box">
+            <p class="highlight-text">Master the Mind, Make Your Move!</p>
+        </div>
+
+        <!-- Learn More Button -->
+        <button class="btn btn-learn-more" id="btnLearnMore" aria-label="Learn more about RK Chess Academy" title="Learn More">
+            Learn more
+            <i class="fas fa-arrow-right" style="font-size:0.85rem;"></i>
+        </button>
+
+        <!-- Founder's Profile Button -->
+        <button class="btn btn-founder-profile" id="btnFounderProfile" aria-label="View Founder's Profile" title="Founder's Profile">
+            <i class="fas fa-user"></i> Founder's Profile
+            <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+        </button>
+
+        <!-- Our Social Media Profiles -->
+        <p class="social-section-title">Our Social Media Profiles</p>
+        <div class="social-icons-row">
+            <div class="social-item-wrapper">
+                <a href="https://youtube.com/@rkchessacademy?si=HS_Jbkv7FiNM440h"
+                class="social-icon-btn youtube"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="RK Chess Academy YouTube Channel"
+                title="YouTube Channel">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <span class="social-label-mini">YouTube</span>
+        </div>
+
+        <div class="social-item-wrapper">
+            <a href="https://whatsapp.com/channel/0029VbB3uSFHrDZj7mjbar0t"
+            class="social-icon-btn whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="RK Chess Academy WhatsApp Channel"
+            title="WhatsApp Channel">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <span class="social-label-mini">WhatsApp Channel</span>
+    </div>
+
+    <div class="social-item-wrapper">
+        <a href="https://www.instagram.com/rk.chess_academy?igsh=bG9kN2NxY283NGx1"
+        class="social-icon-btn instagram"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="RK Chess Academy Instagram Profile"
+        title="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <span class="social-label-mini">Instagram</span>
+</div>
+</div>
+
+<!-- Chat With Us Button -->
+<a href="https://wa.me/919539020511"
+class="btn btn-chat"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Chat with RK Chess Academy on WhatsApp"
+title="Chat With Us on WhatsApp">
+<i class="fab fa-whatsapp"></i> Chat With Us
+</a>
+
+<!-- Email Us Button -->
+<a href="mailto:rkchessacademy83@gmail.com"
+class="btn btn-email"
+aria-label="Email RK Chess Academy"
+title="Email Us">
+<i class="fas fa-envelope"></i> Email Us
+</a>
+
+<!-- Thick White Border Line -->
+<hr class="thick-white-border" aria-hidden="true">
+
+<!-- Legal Information Section -->
+<section class="legal-section">
+    <h2 class="legal-heading">LEGAL INFORMATIONS</h2>
+    <p class="legal-text">
+        <strong>Technical Support:</strong> For any technical issues, inquiries, or assistance regarding this website, please contact us through the official channels listed above. We strive to respond to all queries promptly.
+    </p>
+    <p class="legal-text">
+        <strong>AI Coding Assistance Disclosure:</strong> This website was developed with the assistance of artificial intelligence coding tools. The design, structure, and implementation incorporate AI-generated code that has been thoroughly reviewed, tested, and customized to meet production standards and ensure optimal performance.
+    </p>
+    <p class="legal-text">
+        <strong>Developer Information:</strong> Developed by <strong>VeeJe Business and Innovations Group</strong> on behalf of <strong>RK Chess Academy</strong>. All development, customization, and deployment were coordinated to ensure a seamless user experience aligned with the academy's vision and standards.
+    </p>
+
+    <div class="copyright-block">
+        <p class="copyright-text">© 2026 RK Chess Academy. All rights reserved.</p>
+        <p class="copyright-text">© 2026 VeeJe Business and Innovations Group (Veebig). All rights reserved.</p>
+    </div>
+</section>
+
+<!-- UI Asset Attribution -->
+<section class="attribution-section">
+    <p class="attribution-text">
+        <strong>UI Asset Attribution:</strong> Platform and UI icons (YouTube, WhatsApp, Instagram, Email) used on this website are provided by
+        <a href="https://fontawesome.com/" target="_blank" rel="noopener noreferrer">Font Awesome</a>
+        (Free License v6.5.1). These icons serve as visual identifiers for social media platform links and contact methods, enabling users to easily recognize and access RK Chess Academy's official social media profiles and communication channels. Font Awesome is a widely-used icon library distributed under the Font Awesome Free License.
+    </p>
+</section>
+</main>
+
+<!-- ==================== LEARN MORE POPUP ==================== -->
+<div class="popup-overlay" id="popupOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="popupHeading">
+    <div class="popup-content-wrapper" id="popupContentWrapper">
+
+        <h2 class="popup-heading" id="popupHeading">Step Inside the World of Chess Mastery!</h2>
+
+        <p class="popup-paragraph">
+            You have just unlocked the gateway to tactical brilliance, strategic thinking, and endless possibilities across the 64 squares. Inside lies a world of professional coaching, structured modules, interactive lessons, and a community dedicated to turning keen minds into fearless champions. Your journey to greatness doesn't start here—it deepens. Step further inside, explore our programs, and discover what your next move will be.
+        </p>
+        <p class="popup-paragraph" style="font-weight:600; color:#f0d78c; font-size:0.95rem;">
+            The board is set. Are you ready to play?
+        </p>
+
+        <h3 class="popup-subheading">Why Join RK Chess Academy?</h3>
+
+        <p class="popup-subsection-label">For Students &amp; Young Minds:</p>
+        <p class="popup-subsection-text">
+            Chess is much more than a game—it is a powerful tool for academic excellence. Regular training helps children build exceptional concentration, memory, problem-solving skills, and logical reasoning. Through our structured coaching, young talents can systematically develop their skills to shine as top-tier players at the District, State, National, and International levels.
+        </p>
+
+        <p class="popup-subsection-label">For Adults &amp; Professionals:</p>
+        <p class="popup-subsection-text">
+            It is never too late to master the 64 squares! For adults, chess serves as a brilliant mental workout that relieves stress, sharpens cognitive flexibility, and significantly enhances strategic decision-making and analytical thinking in everyday life.
+        </p>
+
+        <p class="popup-subsection-label">Expert Mentorship:</p>
+        <p class="popup-subsection-text">
+            Receive personalized guidance and structured lessons from experienced and passionate coaches, tailored to every skill level—from absolute beginners to advanced tournament competitors.
+        </p>
+
+        <p class="popup-subsection-label">A Thriving Community:</p>
+        <p class="popup-subsection-text">
+            Join a supportive, active network of chess enthusiasts where you can practice regularly, play matches, and continuously elevate your game.
+        </p>
+
+        <!-- Popup Tagline -->
+        <div class="popup-tagline">
+            Master the Mind, Make Your Move!
+        </div>
+
+        <!-- Register Now! Button -->
+        <a href="https://form.svhrt.com/6a278740950484b9aff96257"
+        class="btn-register-now"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Register Now for RK Chess Academy"
+        title="Register Now!">
+        <i class="fas fa-pen-to-square"></i> Register Now!
+        <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+    </a>
+
+    <!-- Sticky Back to Home Button -->
+    <div class="popup-back-btn-wrapper">
+        <button class="btn btn-back-home" id="btnBackHome" aria-label="Back to Home" title="Back to Home">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </button>
+    </div>
+</div>
+</div>
+
+<!-- ==================== FOUNDER PROFILE POPUP ==================== -->
+<div class="founder-popup-overlay" id="founderPopupOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="founderPopupHeading">
+    <div class="founder-popup-wrapper" id="founderPopupWrapper">
+
+        <!-- Popup Heading -->
+        <h2 class="popup-heading" id="founderPopupHeading" style="margin-bottom:20px;">Founder's Profile</h2>
+
+        <!-- Wikipedia-style Infobox -->
+        <div class="wiki-infobox">
+            <!-- Infobox Header -->
+            <div class="wiki-infobox-header">
+                <div class="wiki-name">Muhammed Ranish K</div>
+                <div class="wiki-designation">International FIDE Rated Player</div>
+            </div>
+            <!-- Personal Info Sub-header -->
+            <div class="wiki-infobox-subheader">PERSONAL INFO</div>
+            <!-- Infobox Body - Personal Info -->
+            <div class="wiki-infobox-body">
+                <div class="wiki-infobox-row">
+                    <span class="wiki-infobox-label">Full Name</span>
+                    <span class="wiki-infobox-value">Muhammed Ranish K</span>
+                </div>
+                <div class="wiki-infobox-row">
+                    <span class="wiki-infobox-label">Nationality</span>
+                    <span class="wiki-infobox-value">Indian <span class="wiki-flag-emoji">🇮🇳</span></span>
+                </div>
+                <div class="wiki-infobox-row">
+                    <span class="wiki-infobox-label">Years Active</span>
+                    <span class="wiki-infobox-value">2022 – Present</span>
+                </div>
+                <div class="wiki-infobox-row">
+                    <span class="wiki-infobox-label">Personal Email</span>
+                    <span class="wiki-infobox-value"><a href="mailto:ranishchess@gmail.com">ranishchess@gmail.com</a></span>
+                </div>
+            </div>
+            <!-- FIDE Profile Sub-header -->
+            <div class="wiki-infobox-subheader">FIDE PROFILE</div>
+            <div class="wiki-infobox-body">
+                <div class="wiki-infobox-row">
+                    <span class="wiki-infobox-label">Status</span>
+                    <span class="wiki-infobox-value">Active</span>
+                </div>
+                <div class="wiki-infobox-row">
+                    <span class="wiki-infobox-label">FIDE Category</span>
+                    <span class="wiki-infobox-value">Standard</span>
+                </div>
+                <div class="wiki-infobox-row">
+                    <span class="wiki-infobox-label">FIDE Rating<br><span style="font-weight:400;font-size:0.7rem;color:#999;">(Current)</span></span>
+                    <span class="wiki-infobox-value"><strong>1602</strong> — 1<sup>st</sup> June 2026</span>
+                </div>
+                <div class="wiki-infobox-row">
+                    <span class="wiki-infobox-label">Peak Rating</span>
+                    <span class="wiki-infobox-value"><strong>1602</strong> — 1<sup>st</sup> June 2026</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="founder-section">
+            <h3>About the Founder</h3>
+            <p>
+                <strong>Muhammed Ranish K</strong> is an Indian chess player and an <strong>International FIDE rated competitor</strong> who has been actively competing in the chess arena since <strong>2022</strong>. Holding a <strong>Standard FIDE rating of 1602</strong> as of 1<sup>st</sup> June 2026—which also marks his peak rating to date—he has demonstrated consistent dedication, strategic acumen, and a deep passion for the royal game.
+            </p>
+            <p>
+                As the visionary founder of <strong>RK Chess Academy</strong>, Muhammed Ranish K channels his competitive experience and profound understanding of chess into nurturing the next generation of players. His mission is to make high-quality chess education accessible to students, young minds, adults, and professionals alike. Through structured training modules, expert mentorship, and a thriving community, he strives to elevate every learner's game—from foundational tactics to advanced strategic mastery.
+            </p>
+            <p>
+                With an unwavering commitment to excellence both on and off the board, Muhammed Ranish K continues to inspire a vibrant community of chess enthusiasts. His active FIDE status and ongoing participation in competitive chess ensure that his coaching remains grounded in real-world experience, current trends, and the evolving dynamics of modern tournament play.
+            </p>
+        </div>
+
+        <!-- Verification Box -->
+        <div class="verification-box">
+            <div class="verification-icon">
+                <i class="fas fa-shield-halved"></i>
+            </div>
+            <div class="verification-title">Certificate of Verification</div>
+            <p class="verification-text">
+                This profile has been officially verified and authenticated by <strong>RK Chess Academy</strong>. All personal information, FIDE ratings, professional credentials, and biographical details presented herein have been thoroughly reviewed and confirmed as accurate and true to the best of the academy's knowledge as of the date of publication. This verification is issued under the authority of RK Chess Academy. Any unauthorized alteration, reproduction, or misrepresentation of this verified profile is strictly prohibited and may result in legal action.
+            </p>
+        </div>
+
+        <!-- Sticky Back to Home Button -->
+        <div class="founder-back-btn-wrapper">
+            <button class="btn btn-back-home-founder" id="btnBackHomeFounder" aria-label="Back to Home" title="Back to Home">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+    (function() {
+        'use strict';
+
+        // DOM Elements - Main Page
+        const btnLearnMore = document.getElementById('btnLearnMore');
+        const btnFounderProfile = document.getElementById('btnFounderProfile');
+        const mainPage = document.getElementById('mainPage');
+        const body = document.body;
+
+        // DOM Elements - Learn More Popup
+        const popupOverlay = document.getElementById('popupOverlay');
+        const popupContentWrapper = document.getElementById('popupContentWrapper');
+        const btnBackHome = document.getElementById('btnBackHome');
+
+        // DOM Elements - Founder Profile Popup
+        const founderPopupOverlay = document.getElementById('founderPopupOverlay');
+        const founderPopupWrapper = document.getElementById('founderPopupWrapper');
+        const btnBackHomeFounder = document.getElementById('btnBackHomeFounder');
+
+        // Track scroll position
+        let savedScrollY = 0;
+
+        /**
+         * Check if any popup is currently open
+         */
+        function isAnyPopupOpen() {
+            return popupOverlay.classList.contains('active') ||
+                founderPopupOverlay.classList.contains('active');
+        }
+
+        /**
+         * Close all popups
+         */
+        function closeAllPopups() {
+            if (popupOverlay.classList.contains('active')) {
+                popupOverlay.classList.remove('active');
+                popupOverlay.setAttribute('aria-hidden', 'true');
+            }
+            if (founderPopupOverlay.classList.contains('active')) {
+                founderPopupOverlay.classList.remove('active');
+                founderPopupOverlay.setAttribute('aria-hidden', 'true');
+            }
+        }
+
+        /**
+         * Lock body scroll
+         */
+        function lockBodyScroll() {
+            if (!body.classList.contains('no-scroll')) {
+                savedScrollY = window.scrollY;
+                body.classList.add('no-scroll');
+                body.style.top = `-${savedScrollY}px`;
+                mainPage.setAttribute('inert', 'true');
+            }
+        }
+
+        /**
+         * Unlock body scroll
+         */
+        function unlockBodyScroll() {
+            if (!isAnyPopupOpen()) {
+                body.classList.remove('no-scroll');
+                body.style.top = '';
+                window.scrollTo(0, savedScrollY);
+                mainPage.removeAttribute('inert');
+            }
+        }
+
+        /**
+         * Push history state for back button handling
+         */
+        function pushPopupState(stateObj) {
+            history.pushState(stateObj, '', window.location.href);
+        }
+
+        // ==================== LEARN MORE POPUP ====================
+
+        function openLearnMorePopup() {
+            // Close founder popup if open
+            if (founderPopupOverlay.classList.contains('active')) {
+                founderPopupOverlay.classList.remove('active');
+                founderPopupOverlay.setAttribute('aria-hidden', 'true');
+            }
+
+            lockBodyScroll();
+
+            popupOverlay.classList.add('active');
+            popupOverlay.setAttribute('aria-hidden', 'false');
+            popupContentWrapper.scrollTop = 0;
+
+            setTimeout(function() {
+                const heading = popupContentWrapper.querySelector('.popup-heading');
+                if (heading) {
+                    heading.setAttribute('tabindex', '-1');
+                    heading.focus({ preventScroll: true });
+                }
+            }, 400);
+
+            pushPopupState({ popupOpen: 'learnMore' });
+        }
+
+        function closeLearnMorePopup() {
+            popupOverlay.classList.remove('active');
+            popupOverlay.setAttribute('aria-hidden', 'true');
+            unlockBodyScroll();
+
+            setTimeout(function() {
+                btnLearnMore.focus({ preventScroll: true });
+            }, 350);
+        }
+
+        btnLearnMore.addEventListener('click', function(e) {
+            e.preventDefault();
+            openLearnMorePopup();
+        });
+
+        btnBackHome.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeLearnMorePopup();
+            if (history.state && history.state.popupOpen === 'learnMore') {
+                history.back();
+            }
+        });
+
+        popupOverlay.addEventListener('click', function(e) {
+            if (e.target === popupOverlay) {
+                closeLearnMorePopup();
+                if (history.state && history.state.popupOpen === 'learnMore') {
+                    history.back();
+                }
+            }
+        });
+
+        popupContentWrapper.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        popupContentWrapper.addEventListener('touchmove', function(e) {
+            const scrollTop = popupContentWrapper.scrollTop;
+            const scrollHeight = popupContentWrapper.scrollHeight;
+            const clientHeight = popupContentWrapper.clientHeight;
+            const atTop = scrollTop <= 0;
+            const atBottom = scrollTop + clientHeight >= scrollHeight - 2;
+
+            if ((atTop && e.touches[0] && e.touches[0].clientY > (e.touches[0] && 0)) ||
+                (atBottom && e.touches[0] && e.touches[0].clientY < (e.touches[0] && window.innerHeight))) {
+                return;
+            }
+            if (atTop || atBottom) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // ==================== FOUNDER PROFILE POPUP ====================
+
+        function openFounderPopup() {
+            // Close learn-more popup if open
+            if (popupOverlay.classList.contains('active')) {
+                popupOverlay.classList.remove('active');
+                popupOverlay.setAttribute('aria-hidden', 'true');
+            }
+
+            lockBodyScroll();
+
+            founderPopupOverlay.classList.add('active');
+            founderPopupOverlay.setAttribute('aria-hidden', 'false');
+            founderPopupWrapper.scrollTop = 0;
+
+            setTimeout(function() {
+                const heading = founderPopupWrapper.querySelector('.popup-heading');
+                if (heading) {
+                    heading.setAttribute('tabindex', '-1');
+                    heading.focus({ preventScroll: true });
+                }
+            }, 400);
+
+            pushPopupState({ popupOpen: 'founderProfile' });
+        }
+
+        function closeFounderPopup() {
+            founderPopupOverlay.classList.remove('active');
+            founderPopupOverlay.setAttribute('aria-hidden', 'true');
+            unlockBodyScroll();
+
+            setTimeout(function() {
+                btnFounderProfile.focus({ preventScroll: true });
+            }, 350);
+        }
+
+        btnFounderProfile.addEventListener('click', function(e) {
+            e.preventDefault();
+            openFounderPopup();
+        });
+
+        btnBackHomeFounder.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeFounderPopup();
+            if (history.state && history.state.popupOpen === 'founderProfile') {
+                history.back();
+            }
+        });
+
+        founderPopupOverlay.addEventListener('click', function(e) {
+            if (e.target === founderPopupOverlay) {
+                closeFounderPopup();
+                if (history.state && history.state.popupOpen === 'founderProfile') {
+                    history.back();
+                }
+            }
+        });
+
+        founderPopupWrapper.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        founderPopupWrapper.addEventListener('touchmove', function(e) {
+            const scrollTop = founderPopupWrapper.scrollTop;
+            const scrollHeight = founderPopupWrapper.scrollHeight;
+            const clientHeight = founderPopupWrapper.clientHeight;
+            const atTop = scrollTop <= 0;
+            const atBottom = scrollTop + clientHeight >= scrollHeight - 2;
+
+            if ((atTop && e.touches[0] && e.touches[0].clientY > (e.touches[0] && 0)) ||
+                (atBottom && e.touches[0] && e.touches[0].clientY < (e.touches[0] && window.innerHeight))) {
+                return;
+            }
+            if (atTop || atBottom) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // ==================== GLOBAL HANDLERS ====================
+
+        // Handle popstate (browser back button)
+        window.addEventListener('popstate', function(e) {
+            if (founderPopupOverlay.classList.contains('active')) {
+                closeFounderPopup();
+            } else if (popupOverlay.classList.contains('active')) {
+                closeLearnMorePopup();
+            }
+        });
+
+        // Keyboard support - Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (founderPopupOverlay.classList.contains('active')) {
+                    e.preventDefault();
+                    closeFounderPopup();
+                    if (history.state && history.state.popupOpen === 'founderProfile') {
+                        history.back();
+                    }
+                } else if (popupOverlay.classList.contains('active')) {
+                    e.preventDefault();
+                    closeLearnMorePopup();
+                    if (history.state && history.state.popupOpen === 'learnMore') {
+                        history.back();
+                    }
+                }
+            }
+        });
+
+        // Initial setup
+        popupOverlay.classList.remove('active');
+        popupOverlay.setAttribute('aria-hidden', 'true');
+        founderPopupOverlay.classList.remove('active');
+        founderPopupOverlay.setAttribute('aria-hidden', 'true');
+
+        console.log('RK Chess Academy SPA initialized successfully.');
+        console.log('Founder: Muhammed Ranish K — International FIDE Rated Player (FIDE Rating: 1602)');
+        console.log('Developer: VeeJe Business and Innovations Group on behalf of RK Chess Academy');
+        console.log('© 2026 RK Chess Academy. All rights reserved.');
+        console.log('© 2026 VeeJe Business and Innovations Group (Veebig). All rights reserved.');
+    })();
+</script>
+
+</body>
+</html>
