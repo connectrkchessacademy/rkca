@@ -43,6 +43,9 @@
             --button-admission-bg: #1a0a2e;
             --button-admission-hover: #2d1548;
             --button-admission-active: #150820;
+            --button-achievements-bg: #2a0a0a;
+            --button-achievements-hover: #3d1515;
+            --button-achievements-active: #1e0808;
             --overlay-bg: rgba(0, 0, 0, 0.97);
             --popup-card-bg: #0a0a0a;
             --border-thick-white: #ffffff;
@@ -73,6 +76,7 @@
             --admission-card-bg: #111111;
             --admission-border: #2a2a2a;
             --admission-highlight: #1a2a1a;
+            --achievements-accent: #d4785c;
         }
 
         * {
@@ -380,6 +384,31 @@
         .btn-admission-details i {
             font-size: 0.85rem;
             color: #c9973a;
+        }
+
+        /* Our Achievements Button */
+        .btn-achievements {
+            background-color: var(--button-achievements-bg);
+            box-shadow: 0 4px 14px rgba(42, 10, 10, 0.5);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+            padding: 14px 28px;
+            letter-spacing: 0.4px;
+            border: 1.5px solid rgba(210, 120, 100, 0.5);
+            gap: 7px;
+        }
+        .btn-achievements:hover {
+            background-color: var(--button-achievements-hover);
+            box-shadow: 0 6px 20px rgba(61, 21, 21, 0.65);
+            border-color: rgba(210, 120, 100, 0.75);
+        }
+        .btn-achievements:active {
+            background-color: var(--button-achievements-active);
+            border-color: rgba(210, 120, 100, 0.9);
+        }
+        .btn-achievements i {
+            font-size: 0.85rem;
+            color: #d4785c;
         }
 
         /* Founder's Profile Button */
@@ -1156,6 +1185,125 @@
             gap: 6px;
         }
 
+        /* ==================== OUR ACHIEVEMENTS POPUP ==================== */
+        .achievements-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            height: 100dvh;
+            background: var(--overlay-bg);
+            z-index: 9997;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            -webkit-overflow-scrolling: touch;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+        }
+        .achievements-popup-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .achievements-popup-wrapper {
+            width: 100%;
+            max-width: 600px;
+            min-height: 100vh;
+            min-height: 100dvh;
+            padding: 28px 20px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            background: #0a0a0a;
+            position: relative;
+            overscroll-behavior: contain;
+        }
+
+        .achievement-image-wrapper {
+            width: 100%;
+            max-width: 500px;
+            align-self: center;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #1a1a1a;
+            border: 2px solid #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .achievement-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .achievement-image-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #666666;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 20px;
+            letter-spacing: 0.4px;
+            line-height: 1.5;
+            pointer-events: none;
+            background: #1a1a1a;
+        }
+        .achievement-image-placeholder i {
+            font-size: 2.5rem;
+            color: #555;
+        }
+
+        .achievement-description {
+            width: 100%;
+            max-width: 500px;
+            align-self: center;
+            color: #dddddd;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 0.1px;
+        }
+        .achievement-description p {
+            margin-bottom: 10px;
+        }
+        .achievement-description strong {
+            color: #ffffff;
+        }
+
+        .achievements-back-btn-wrapper {
+            position: sticky;
+            bottom: 16px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 12px 0 8px;
+            background: linear-gradient(to top, rgba(10, 10, 10, 1) 60%, rgba(10, 10, 10, 0) 100%);
+            z-index: 10;
+            margin-top: auto;
+        }
+        .btn-back-home-achievements {
+            font-size: 0.9rem;
+            padding: 13px 26px;
+            letter-spacing: 0.4px;
+            gap: 6px;
+        }
+
         /* ==================== FOUNDER PROFILE POPUP ==================== */
         .founder-popup-overlay {
             position: fixed;
@@ -1633,7 +1781,8 @@
                 font-size: 1.05rem;
                 padding: 16px 36px;
             }
-            .btn-admission-details {
+            .btn-admission-details,
+            .btn-achievements {
                 font-size: 1rem;
                 padding: 15px 30px;
             }
@@ -1912,7 +2061,8 @@
             .btn::after {
                 display: none;
             }
-            .popup-overlay {
+            .popup-overlay,
+            .achievements-popup-overlay {
                 transition: opacity 0.1s ease;
             }
             .founder-popup-overlay {
@@ -1990,6 +2140,12 @@
         <!-- Admission Details Button -->
         <button class="btn btn-admission-details" id="btnAdmissionDetails" aria-label="View Admission Details" title="Admission Details">
             <i class="fas fa-graduation-cap"></i> Admission Details
+            <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+        </button>
+
+        <!-- Our Achievements Button -->
+        <button class="btn btn-achievements" id="btnAchievements" aria-label="View Our Achievements" title="Our Achievements">
+            <i class="fas fa-trophy"></i> Our Achievements
             <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
         </button>
 
@@ -2256,6 +2412,43 @@ title="Email Us">
 </div>
 </div>
 
+<!-- ==================== OUR ACHIEVEMENTS POPUP ==================== -->
+<div class="achievements-popup-overlay" id="achievementsPopupOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="achievementsPopupHeading">
+    <div class="achievements-popup-wrapper" id="achievementsPopupWrapper">
+
+        <h2 class="popup-heading" id="achievementsPopupHeading">Our Achievements</h2>
+
+        <!-- Achievement Image Placeholder -->
+        <div class="achievement-image-wrapper" aria-label="Achievement photo of Ansh Sahay with GM Dibyendu Barua">
+            <img
+            src="achievement1.jpg"
+            alt="Ansh Sahay with India's 2nd Chess Grandmaster Dibyendu Barua"
+            loading="lazy"
+            onerror="this.style.display='none';this.parentElement.querySelector('.achievement-image-placeholder').style.display='flex';"
+            width="500"
+            height="auto"
+            >
+            <div class="achievement-image-placeholder" style="display:none;">
+                <i class="fas fa-image"></i>
+                <span>Ansh Sahay with GM Dibyendu Barua<br><small style="font-size:0.65rem;">(achievement1.jpg)</small></span>
+            </div>
+        </div>
+
+        <!-- Achievement Description -->
+        <div class="achievement-description">
+            <p>A proud and memorable moment for RK Chess Academy! Our talented student <strong>Ansh Sahay</strong> from West Bengal had the incredible honor of meeting India's second Chess Grandmaster, <strong>Dibyendu Barua</strong>. This inspiring encounter with one of the country's most respected chess legends is a testament to Ansh's dedication and passion for the game. It reflects the high standards and values that RK Chess Academy instills in all its students—building not only skilled players but also individuals who earn recognition from the giants of Indian chess.</p>
+            <p>We extend our heartfelt wishes to Ansh for his continued growth and success. May this remarkable experience fuel his ambition and lead him to achieve even greater milestones in his chess journey. The academy is incredibly proud and looks forward to witnessing many more such proud moments in the future.</p>
+        </div>
+
+        <!-- Sticky Back to Home Button -->
+        <div class="achievements-back-btn-wrapper">
+            <button class="btn btn-back-home-achievements" id="btnBackHomeAchievements" aria-label="Back to Home" title="Back to Home">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
+        </div>
+    </div>
+</div>
+
 <!-- ==================== FOUNDER PROFILE POPUP ==================== -->
 <div class="founder-popup-overlay" id="founderPopupOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="founderPopupHeading">
     <div class="founder-popup-wrapper" id="founderPopupWrapper">
@@ -2410,6 +2603,7 @@ title="Email Us">
         // DOM Elements - Main Page
         const btnLearnMore = document.getElementById('btnLearnMore');
         const btnAdmissionDetails = document.getElementById('btnAdmissionDetails');
+        const btnAchievements = document.getElementById('btnAchievements');
         const btnFounderProfile = document.getElementById('btnFounderProfile');
         const mainPage = document.getElementById('mainPage');
         const body = document.body;
@@ -2423,6 +2617,11 @@ title="Email Us">
         const admissionPopupOverlay = document.getElementById('admissionPopupOverlay');
         const admissionPopupWrapper = document.getElementById('admissionPopupWrapper');
         const btnBackHomeAdmission = document.getElementById('btnBackHomeAdmission');
+
+        // DOM Elements - Achievements Popup
+        const achievementsPopupOverlay = document.getElementById('achievementsPopupOverlay');
+        const achievementsPopupWrapper = document.getElementById('achievementsPopupWrapper');
+        const btnBackHomeAchievements = document.getElementById('btnBackHomeAchievements');
 
         // DOM Elements - Founder Profile Popup
         const founderPopupOverlay = document.getElementById('founderPopupOverlay');
@@ -2443,6 +2642,7 @@ title="Email Us">
         function isAnyFullPopupOpen() {
             return popupOverlay.classList.contains('active') ||
                 admissionPopupOverlay.classList.contains('active') ||
+                achievementsPopupOverlay.classList.contains('active') ||
                 founderPopupOverlay.classList.contains('active');
         }
 
@@ -2457,6 +2657,10 @@ title="Email Us">
             if (admissionPopupOverlay.classList.contains('active')) {
                 admissionPopupOverlay.classList.remove('active');
                 admissionPopupOverlay.setAttribute('aria-hidden', 'true');
+            }
+            if (achievementsPopupOverlay.classList.contains('active')) {
+                achievementsPopupOverlay.classList.remove('active');
+                achievementsPopupOverlay.setAttribute('aria-hidden', 'true');
             }
             if (founderPopupOverlay.classList.contains('active')) {
                 founderPopupOverlay.classList.remove('active');
@@ -2498,9 +2702,7 @@ title="Email Us">
         // ==================== LEARN MORE POPUP ====================
 
         function openLearnMorePopup() {
-            // Close all other full popups
             closeAllFullPopups();
-
             lockBodyScroll();
 
             popupOverlay.classList.add('active');
@@ -2573,9 +2775,7 @@ title="Email Us">
         // ==================== ADMISSION DETAILS POPUP ====================
 
         function openAdmissionPopup() {
-            // Close all other full popups
             closeAllFullPopups();
-
             lockBodyScroll();
 
             admissionPopupOverlay.classList.add('active');
@@ -2645,12 +2845,83 @@ title="Email Us">
             }
         }, { passive: false });
 
+        // ==================== ACHIEVEMENTS POPUP ====================
+
+        function openAchievementsPopup() {
+            closeAllFullPopups();
+            lockBodyScroll();
+
+            achievementsPopupOverlay.classList.add('active');
+            achievementsPopupOverlay.setAttribute('aria-hidden', 'false');
+            achievementsPopupWrapper.scrollTop = 0;
+
+            setTimeout(function() {
+                const heading = achievementsPopupWrapper.querySelector('.popup-heading');
+                if (heading) {
+                    heading.setAttribute('tabindex', '-1');
+                    heading.focus({ preventScroll: true });
+                }
+            }, 400);
+
+            pushPopupState({ popupOpen: 'achievements' });
+        }
+
+        function closeAchievementsPopup() {
+            achievementsPopupOverlay.classList.remove('active');
+            achievementsPopupOverlay.setAttribute('aria-hidden', 'true');
+            unlockBodyScroll();
+
+            setTimeout(function() {
+                btnAchievements.focus({ preventScroll: true });
+            }, 350);
+        }
+
+        btnAchievements.addEventListener('click', function(e) {
+            e.preventDefault();
+            openAchievementsPopup();
+        });
+
+        btnBackHomeAchievements.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeAchievementsPopup();
+            if (history.state && history.state.popupOpen === 'achievements') {
+                history.back();
+            }
+        });
+
+        achievementsPopupOverlay.addEventListener('click', function(e) {
+            if (e.target === achievementsPopupOverlay) {
+                closeAchievementsPopup();
+                if (history.state && history.state.popupOpen === 'achievements') {
+                    history.back();
+                }
+            }
+        });
+
+        achievementsPopupWrapper.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        achievementsPopupWrapper.addEventListener('touchmove', function(e) {
+            const scrollTop = achievementsPopupWrapper.scrollTop;
+            const scrollHeight = achievementsPopupWrapper.scrollHeight;
+            const clientHeight = achievementsPopupWrapper.clientHeight;
+            const atTop = scrollTop <= 0;
+            const atBottom = scrollTop + clientHeight >= scrollHeight - 2;
+
+            if ((atTop && e.touches[0] && e.touches[0].clientY > (e.touches[0] && 0)) ||
+                (atBottom && e.touches[0] && e.touches[0].clientY < (e.touches[0] && window.innerHeight))) {
+                return;
+            }
+            if (atTop || atBottom) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
         // ==================== FOUNDER PROFILE POPUP ====================
 
         function openFounderPopup() {
-            // Close all other full popups
             closeAllFullPopups();
-
             lockBodyScroll();
 
             founderPopupOverlay.classList.add('active');
@@ -2815,6 +3086,10 @@ title="Email Us">
                 closeFounderPopup();
                 return;
             }
+            if (achievementsPopupOverlay.classList.contains('active')) {
+                closeAchievementsPopup();
+                return;
+            }
             if (admissionPopupOverlay.classList.contains('active')) {
                 closeAdmissionPopup();
                 return;
@@ -2832,6 +3107,12 @@ title="Email Us">
                     e.preventDefault();
                     closeFounderPopup();
                     if (history.state && history.state.popupOpen === 'founderProfile') {
+                        history.back();
+                    }
+                } else if (achievementsPopupOverlay.classList.contains('active')) {
+                    e.preventDefault();
+                    closeAchievementsPopup();
+                    if (history.state && history.state.popupOpen === 'achievements') {
                         history.back();
                     }
                 } else if (admissionPopupOverlay.classList.contains('active')) {
@@ -2855,6 +3136,8 @@ title="Email Us">
         popupOverlay.setAttribute('aria-hidden', 'true');
         admissionPopupOverlay.classList.remove('active');
         admissionPopupOverlay.setAttribute('aria-hidden', 'true');
+        achievementsPopupOverlay.classList.remove('active');
+        achievementsPopupOverlay.setAttribute('aria-hidden', 'true');
         founderPopupOverlay.classList.remove('active');
         founderPopupOverlay.setAttribute('aria-hidden', 'true');
         adPopupOverlay.classList.remove('active');
@@ -2867,6 +3150,7 @@ title="Email Us">
         console.log('© 2026 VeeJe Business and Innovations Group (Veebig). All rights reserved.');
         console.log('Ad popup scheduled: will appear 15 seconds after page load.');
         console.log('Admission Details popup ready.');
+        console.log('Our Achievements popup ready.');
     })();
 </script>
 
