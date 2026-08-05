@@ -40,6 +40,9 @@
             --button-founder-bg: #1a1a2e;
             --button-founder-hover: #25254a;
             --button-founder-active: #0f0f1e;
+            --button-admission-bg: #1a0a2e;
+            --button-admission-hover: #2d1548;
+            --button-admission-active: #150820;
             --overlay-bg: rgba(0, 0, 0, 0.97);
             --popup-card-bg: #0a0a0a;
             --border-thick-white: #ffffff;
@@ -64,6 +67,12 @@
             --ad-green: #22c55e;
             --ad-green-hover: #16a34a;
             --ad-green-active: #15803d;
+            --admission-accent: #c9973a;
+            --admission-accent-light: #e0b84c;
+            --admission-bg-dark: #0d0d0d;
+            --admission-card-bg: #111111;
+            --admission-border: #2a2a2a;
+            --admission-highlight: #1a2a1a;
         }
 
         * {
@@ -348,6 +357,31 @@
             letter-spacing: 0.5px;
         }
 
+        /* Admission Details Button */
+        .btn-admission-details {
+            background-color: var(--button-admission-bg);
+            box-shadow: 0 4px 14px rgba(26, 10, 46, 0.5);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+            padding: 14px 28px;
+            letter-spacing: 0.4px;
+            border: 1.5px solid rgba(180, 130, 200, 0.45);
+            gap: 7px;
+        }
+        .btn-admission-details:hover {
+            background-color: var(--button-admission-hover);
+            box-shadow: 0 6px 20px rgba(45, 21, 72, 0.65);
+            border-color: rgba(180, 130, 200, 0.7);
+        }
+        .btn-admission-details:active {
+            background-color: var(--button-admission-active);
+            border-color: rgba(180, 130, 200, 0.8);
+        }
+        .btn-admission-details i {
+            font-size: 0.85rem;
+            color: #c9973a;
+        }
+
         /* Founder's Profile Button */
         .btn-founder-profile {
             background-color: var(--button-founder-bg);
@@ -557,6 +591,58 @@
             color: #000000;
         }
 
+        /* Getting Started Button (Admission Popup) */
+        .btn-getting-started {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #22c55e, #16a34a, #15803d);
+            color: #ffffff;
+            border: none;
+            border-radius: 28px;
+            padding: 15px 30px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            cursor: pointer;
+            text-decoration: none;
+            min-height: 50px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 18px rgba(34, 197, 94, 0.4);
+            position: relative;
+            overflow: hidden;
+            outline: none;
+            -webkit-user-select: none;
+            user-select: none;
+            white-space: nowrap;
+            width: 100%;
+            max-width: 320px;
+            align-self: center;
+            margin: 14px auto 6px;
+        }
+        .btn-getting-started:hover {
+            background: linear-gradient(135deg, #16a34a, #22c55e, #4ade80);
+            box-shadow: 0 6px 24px rgba(34, 197, 94, 0.55);
+            transform: translateY(-1px);
+        }
+        .btn-getting-started:active {
+            background: linear-gradient(135deg, #15803d, #16a34a, #22c55e);
+            transform: scale(0.96);
+            box-shadow: 0 2px 8px rgba(34, 197, 94, 0.35);
+            transition: transform 0.08s ease;
+        }
+        .btn-getting-started:focus-visible {
+            outline: 2px solid rgba(255, 255, 255, 0.8);
+            outline-offset: 3px;
+        }
+        .btn-getting-started i {
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
         /* Thick White Border */
         .thick-white-border {
             width: 85%;
@@ -753,6 +839,317 @@
             margin-top: auto;
         }
         .btn-back-home {
+            font-size: 0.9rem;
+            padding: 13px 26px;
+            letter-spacing: 0.4px;
+            gap: 6px;
+        }
+
+        /* ==================== ADMISSION DETAILS POPUP ==================== */
+        .admission-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            height: 100dvh;
+            background: var(--overlay-bg);
+            z-index: 9998;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            -webkit-overflow-scrolling: touch;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+        }
+        .admission-popup-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .admission-popup-wrapper {
+            width: 100%;
+            max-width: 600px;
+            min-height: 100vh;
+            min-height: 100dvh;
+            padding: 28px 20px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            background: var(--admission-bg-dark);
+            position: relative;
+            overscroll-behavior: contain;
+        }
+
+        .admission-heading {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-white);
+            text-align: center;
+            margin-bottom: 6px;
+            letter-spacing: -0.2px;
+            line-height: 1.3;
+            background: linear-gradient(135deg, #f0d78c, #d4a843, #e8c565, #c9973a);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s ease-in-out infinite;
+        }
+        .admission-subheading {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #e0b84c;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 0.3px;
+            font-style: italic;
+        }
+
+        /* Admission Poster */
+        .admission-poster-wrapper {
+            width: 100%;
+            max-width: 380px;
+            align-self: center;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #1a1a1a;
+            border: 2px solid #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+            aspect-ratio: 2 / 3;
+            position: relative;
+        }
+        .admission-poster-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .admission-poster-placeholder {
+            color: #666666;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 20px;
+            letter-spacing: 0.4px;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .admission-poster-placeholder i {
+            font-size: 2.5rem;
+            color: #555;
+        }
+
+        /* Admission Info Cards */
+        .admission-info-card {
+            width: 100%;
+            max-width: 500px;
+            align-self: center;
+            background: var(--admission-card-bg);
+            border: 1.5px solid var(--admission-border);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+        }
+        .admission-info-card h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #e0b84c;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 8px;
+        }
+        .admission-info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .admission-info-list li {
+            font-size: 0.85rem;
+            color: #dddddd;
+            line-height: 1.6;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            letter-spacing: 0.1px;
+        }
+        .admission-info-list li:last-child {
+            border-bottom: none;
+        }
+        .admission-info-list li i {
+            color: #c9973a;
+            font-size: 0.75rem;
+            margin-top: 4px;
+            flex-shrink: 0;
+            width: 16px;
+            text-align: center;
+        }
+        .admission-info-list li strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Key Benefits Grid */
+        .admission-benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            width: 100%;
+            max-width: 500px;
+            align-self: center;
+            margin-bottom: 16px;
+        }
+        .admission-benefit-item {
+            background: var(--admission-highlight);
+            border: 1px solid #2a3a2a;
+            border-radius: 10px;
+            padding: 12px 14px;
+            text-align: center;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #d4e8d4;
+            letter-spacing: 0.2px;
+            line-height: 1.4;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+        .admission-benefit-item i {
+            display: block;
+            font-size: 1.2rem;
+            color: #c9973a;
+            margin-bottom: 6px;
+        }
+
+        /* Contact Card */
+        .admission-contact-card {
+            width: 100%;
+            max-width: 500px;
+            align-self: center;
+            background: #0d0d0d;
+            border: 1.5px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .admission-contact-card h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #e0b84c;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+        }
+        .admission-contact-row {
+            font-size: 0.85rem;
+            color: #dddddd;
+            line-height: 1.7;
+            letter-spacing: 0.1px;
+            margin-bottom: 4px;
+        }
+        .admission-contact-row a {
+            color: #4ade80;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .admission-contact-row a:hover {
+            color: #6ee7a0;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .admission-status-badge {
+            display: inline-block;
+            background: #ff4444;
+            color: #ffffff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.4px;
+            margin: 10px 0 4px;
+            animation: pulseBadge 2s ease-in-out infinite;
+        }
+        @keyframes pulseBadge {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(255, 68, 68, 0);
+            }
+        }
+
+        /* Academy Vision */
+        .admission-vision-card {
+            width: 100%;
+            max-width: 500px;
+            align-self: center;
+            background: linear-gradient(135deg, #1a1a0a, #0d0d0d);
+            border: 1.5px solid #3a3a1a;
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .admission-vision-card h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #e0b84c;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+        }
+        .admission-vision-card p {
+            font-size: 0.85rem;
+            color: #dddddd;
+            line-height: 1.7;
+            letter-spacing: 0.1px;
+            margin-bottom: 4px;
+        }
+        .admission-vision-tagline {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #f0d78c;
+            letter-spacing: 0.4px;
+            margin-top: 6px;
+        }
+
+        /* Admission Back Button */
+        .admission-back-btn-wrapper {
+            position: sticky;
+            bottom: 16px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 12px 0 8px;
+            background: linear-gradient(to top, rgba(13, 13, 13, 1) 60%, rgba(13, 13, 13, 0) 100%);
+            z-index: 10;
+            margin-top: auto;
+        }
+        .btn-back-home-admission {
             font-size: 0.9rem;
             padding: 13px 26px;
             letter-spacing: 0.4px;
@@ -1236,6 +1633,10 @@
                 font-size: 1.05rem;
                 padding: 16px 36px;
             }
+            .btn-admission-details {
+                font-size: 1rem;
+                padding: 15px 30px;
+            }
             .btn-founder-profile {
                 font-size: 1rem;
                 padding: 15px 30px;
@@ -1273,6 +1674,20 @@
                 font-size: 0.95rem;
                 padding: 14px 28px;
                 min-height: 48px;
+            }
+            .admission-heading {
+                font-size: 1.7rem;
+            }
+            .admission-poster-wrapper {
+                max-width: 420px;
+            }
+            .admission-benefits-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .admission-benefit-item {
+                font-size: 0.82rem;
+                padding: 14px 16px;
             }
         }
 
@@ -1339,6 +1754,22 @@
                 padding: 15px 30px;
                 min-height: 50px;
                 max-width: 300px;
+            }
+            .admission-heading {
+                font-size: 1.9rem;
+            }
+            .admission-subheading {
+                font-size: 1.1rem;
+            }
+            .admission-poster-wrapper {
+                max-width: 440px;
+            }
+            .admission-benefit-item {
+                font-size: 0.85rem;
+                padding: 16px 18px;
+            }
+            .admission-info-list li {
+                font-size: 0.9rem;
             }
         }
 
@@ -1429,6 +1860,40 @@
                 top: 4px;
                 right: 6px;
             }
+            .admission-heading {
+                font-size: 1.2rem;
+            }
+            .admission-subheading {
+                font-size: 0.8rem;
+            }
+            .admission-poster-wrapper {
+                max-width: 240px;
+                border-radius: 8px;
+            }
+            .admission-benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+            .admission-benefit-item {
+                font-size: 0.72rem;
+                padding: 10px 12px;
+            }
+            .admission-info-list li {
+                font-size: 0.75rem;
+            }
+            .admission-info-card {
+                padding: 12px 14px;
+            }
+            .admission-info-card h3 {
+                font-size: 0.78rem;
+            }
+            .btn-getting-started {
+                font-size: 0.8rem;
+                padding: 12px 22px;
+                min-height: 42px;
+                border-radius: 22px;
+                max-width: 250px;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1440,6 +1905,10 @@
                 animation: none;
                 background-position: 0% 50%;
             }
+            .admission-heading {
+                animation: none;
+                background-position: 0% 50%;
+            }
             .btn::after {
                 display: none;
             }
@@ -1447,6 +1916,9 @@
                 transition: opacity 0.1s ease;
             }
             .founder-popup-overlay {
+                transition: opacity 0.1s ease;
+            }
+            .admission-popup-overlay {
                 transition: opacity 0.1s ease;
             }
             .ad-popup-overlay {
@@ -1463,6 +1935,9 @@
                 justify-content: center;
                 white-space: normal;
                 font-size: 0.85rem;
+            }
+            .admission-status-badge {
+                animation: none;
             }
         }
     </style>
@@ -1510,6 +1985,12 @@
         <button class="btn btn-learn-more" id="btnLearnMore" aria-label="Learn more about RK Chess Academy" title="Learn More">
             Learn more
             <i class="fas fa-arrow-right" style="font-size:0.85rem;"></i>
+        </button>
+
+        <!-- Admission Details Button -->
+        <button class="btn btn-admission-details" id="btnAdmissionDetails" aria-label="View Admission Details" title="Admission Details">
+            <i class="fas fa-graduation-cap"></i> Admission Details
+            <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
         </button>
 
         <!-- Founder's Profile Button -->
@@ -1662,6 +2143,113 @@ title="Email Us">
     <!-- Sticky Back to Home Button -->
     <div class="popup-back-btn-wrapper">
         <button class="btn btn-back-home" id="btnBackHome" aria-label="Back to Home" title="Back to Home">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </button>
+    </div>
+</div>
+</div>
+
+<!-- ==================== ADMISSION DETAILS POPUP ==================== -->
+<div class="admission-popup-overlay" id="admissionPopupOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="admissionPopupHeading">
+    <div class="admission-popup-wrapper" id="admissionPopupWrapper">
+
+        <!-- Admission Heading -->
+        <h2 class="admission-heading" id="admissionPopupHeading">ADMISSION OPEN FOR NEW BATCH 2026-27</h2>
+        <p class="admission-subheading">"Your Chess Journey Starts Here!"</p>
+
+        <!-- Admission Poster Placeholder -->
+        <div class="admission-poster-wrapper" aria-label="RK Chess Academy Admission Poster">
+            <img
+            src="rkcaposter.jpg"
+            alt="RK Chess Academy Admission Poster"
+            loading="lazy"
+            onerror="this.style.display='none';this.parentElement.querySelector('.admission-poster-placeholder').style.display='flex';"
+            width="380"
+            height="570"
+            >
+            <div class="admission-poster-placeholder" style="display:none;">
+                <i class="fas fa-image"></i>
+                <span>RK Chess Academy<br>Admission Poster<br><small style="font-size:0.65rem;">(rkcaposter.jpg — 1024×1536)</small></span>
+            </div>
+        </div>
+
+        <!-- Program Details Card -->
+        <div class="admission-info-card">
+            <h3>📋 PROGRAM DETAILS</h3>
+            <ul class="admission-info-list">
+                <li><i class="fas fa-calendar-check"></i> <span><strong>Class Frequency:</strong> Weekly 2 Classes (Regular &amp; Consistent Learning)</span></li>
+                <li><i class="fas fa-clock"></i> <span><strong>Class Duration:</strong> 1 Hour per class</span></li>
+                <li><i class="fas fa-laptop-house"></i> <span><strong>Mode of Learning:</strong> Online Classes (Live &amp; Interactive)</span></li>
+                <li><i class="fas fa-indian-rupee-sign"></i> <span><strong>Fee Structure:</strong> ₹100 per class</span></li>
+                <li><i class="fas fa-users"></i> <span><strong>Eligibility:</strong> All levels welcome (Beginners to Advanced Players)</span></li>
+            </ul>
+        </div>
+
+        <!-- What We Offer Card -->
+        <div class="admission-info-card">
+            <h3>🎯 WHAT WE OFFER</h3>
+            <ul class="admission-info-list">
+                <li><i class="fas fa-chalkboard-teacher"></i> <span><strong>Expert Coaching:</strong> Learn from experienced &amp; dedicated coaches.</span></li>
+                <li><i class="fas fa-chart-line"></i> <span><strong>Improve Every Day:</strong> Enhance your tactics, strategy, focus &amp; confidence.</span></li>
+                <li><i class="fas fa-trophy"></i> <span><strong>Tournament Preparation:</strong> Get ready for Local, State, National &amp; International events.</span></li>
+                <li><i class="fas fa-hand-holding-heart"></i> <span><strong>Personal Attention:</strong> Small batch size &amp; individual guidance.</span></li>
+            </ul>
+        </div>
+
+        <!-- Key Benefits of Chess -->
+        <div class="admission-info-card">
+            <h3>🧠 KEY BENEFITS OF CHESS</h3>
+            <div class="admission-benefits-grid">
+                <div class="admission-benefit-item">
+                    <i class="fas fa-brain"></i> Boosts IQ &amp; Concentration
+                </div>
+                <div class="admission-benefit-item">
+                    <i class="fas fa-seedling"></i> Builds Patience &amp; Discipline
+                </div>
+                <div class="admission-benefit-item">
+                    <i class="fas fa-lightbulb"></i> Improves Decision Making
+                </div>
+                <div class="admission-benefit-item">
+                    <i class="fas fa-memory"></i> Enhances Memory
+                </div>
+                <div class="admission-benefit-item" style="grid-column: 1 / -1;">
+                    <i class="fas fa-globe-asia"></i> Opens Doors to Global Opportunities
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact & Registration Card -->
+        <div class="admission-contact-card">
+            <h3>📞 CONTACT &amp; REGISTRATION</h3>
+            <p class="admission-contact-row">
+                <strong>WhatsApp:</strong> <a href="https://wa.me/919539020511" target="_blank" rel="noopener noreferrer">+91 9539020511</a>
+            </p>
+            <div class="admission-status-badge">
+                ⚡ Limited Seats Only. Register Now!
+            </div>
+            <!-- Getting Started Button -->
+            <a href="https://form.svhrt.com/6a278740950484b9aff96257"
+            class="btn-getting-started"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Get Started with RK Chess Academy"
+            title="GETTING STARTED">
+            <i class="fas fa-rocket"></i> GETTING STARTED
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Academy Vision Card -->
+    <div class="admission-vision-card">
+        <h3>🌟 ACADEMY VISION</h3>
+        <p>We don't just teach chess, we build champions for life!</p>
+        <p>Be part of the RK Chess Academy family where passion meets purpose and players become champions.</p>
+        <p class="admission-vision-tagline">Think, Learn, Play, Win, Repeat.</p>
+    </div>
+
+    <!-- Sticky Back to Home Button -->
+    <div class="admission-back-btn-wrapper">
+        <button class="btn btn-back-home-admission" id="btnBackHomeAdmission" aria-label="Back to Home" title="Back to Home">
             <i class="fas fa-arrow-left"></i> Back to Home
         </button>
     </div>
@@ -1821,6 +2409,7 @@ title="Email Us">
 
         // DOM Elements - Main Page
         const btnLearnMore = document.getElementById('btnLearnMore');
+        const btnAdmissionDetails = document.getElementById('btnAdmissionDetails');
         const btnFounderProfile = document.getElementById('btnFounderProfile');
         const mainPage = document.getElementById('mainPage');
         const body = document.body;
@@ -1829,6 +2418,11 @@ title="Email Us">
         const popupOverlay = document.getElementById('popupOverlay');
         const popupContentWrapper = document.getElementById('popupContentWrapper');
         const btnBackHome = document.getElementById('btnBackHome');
+
+        // DOM Elements - Admission Details Popup
+        const admissionPopupOverlay = document.getElementById('admissionPopupOverlay');
+        const admissionPopupWrapper = document.getElementById('admissionPopupWrapper');
+        const btnBackHomeAdmission = document.getElementById('btnBackHomeAdmission');
 
         // DOM Elements - Founder Profile Popup
         const founderPopupOverlay = document.getElementById('founderPopupOverlay');
@@ -1848,14 +2442,8 @@ title="Email Us">
          */
         function isAnyFullPopupOpen() {
             return popupOverlay.classList.contains('active') ||
+                admissionPopupOverlay.classList.contains('active') ||
                 founderPopupOverlay.classList.contains('active');
-        }
-
-        /**
-         * Check if the ad popup is open
-         */
-        function isAdPopupOpen() {
-            return adPopupOverlay.classList.contains('active');
         }
 
         /**
@@ -1865,6 +2453,10 @@ title="Email Us">
             if (popupOverlay.classList.contains('active')) {
                 popupOverlay.classList.remove('active');
                 popupOverlay.setAttribute('aria-hidden', 'true');
+            }
+            if (admissionPopupOverlay.classList.contains('active')) {
+                admissionPopupOverlay.classList.remove('active');
+                admissionPopupOverlay.setAttribute('aria-hidden', 'true');
             }
             if (founderPopupOverlay.classList.contains('active')) {
                 founderPopupOverlay.classList.remove('active');
@@ -1906,11 +2498,8 @@ title="Email Us">
         // ==================== LEARN MORE POPUP ====================
 
         function openLearnMorePopup() {
-            // Close founder popup if open
-            if (founderPopupOverlay.classList.contains('active')) {
-                founderPopupOverlay.classList.remove('active');
-                founderPopupOverlay.setAttribute('aria-hidden', 'true');
-            }
+            // Close all other full popups
+            closeAllFullPopups();
 
             lockBodyScroll();
 
@@ -1981,14 +2570,86 @@ title="Email Us">
             }
         }, { passive: false });
 
+        // ==================== ADMISSION DETAILS POPUP ====================
+
+        function openAdmissionPopup() {
+            // Close all other full popups
+            closeAllFullPopups();
+
+            lockBodyScroll();
+
+            admissionPopupOverlay.classList.add('active');
+            admissionPopupOverlay.setAttribute('aria-hidden', 'false');
+            admissionPopupWrapper.scrollTop = 0;
+
+            setTimeout(function() {
+                const heading = admissionPopupWrapper.querySelector('.admission-heading');
+                if (heading) {
+                    heading.setAttribute('tabindex', '-1');
+                    heading.focus({ preventScroll: true });
+                }
+            }, 400);
+
+            pushPopupState({ popupOpen: 'admissionDetails' });
+        }
+
+        function closeAdmissionPopup() {
+            admissionPopupOverlay.classList.remove('active');
+            admissionPopupOverlay.setAttribute('aria-hidden', 'true');
+            unlockBodyScroll();
+
+            setTimeout(function() {
+                btnAdmissionDetails.focus({ preventScroll: true });
+            }, 350);
+        }
+
+        btnAdmissionDetails.addEventListener('click', function(e) {
+            e.preventDefault();
+            openAdmissionPopup();
+        });
+
+        btnBackHomeAdmission.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeAdmissionPopup();
+            if (history.state && history.state.popupOpen === 'admissionDetails') {
+                history.back();
+            }
+        });
+
+        admissionPopupOverlay.addEventListener('click', function(e) {
+            if (e.target === admissionPopupOverlay) {
+                closeAdmissionPopup();
+                if (history.state && history.state.popupOpen === 'admissionDetails') {
+                    history.back();
+                }
+            }
+        });
+
+        admissionPopupWrapper.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        admissionPopupWrapper.addEventListener('touchmove', function(e) {
+            const scrollTop = admissionPopupWrapper.scrollTop;
+            const scrollHeight = admissionPopupWrapper.scrollHeight;
+            const clientHeight = admissionPopupWrapper.clientHeight;
+            const atTop = scrollTop <= 0;
+            const atBottom = scrollTop + clientHeight >= scrollHeight - 2;
+
+            if ((atTop && e.touches[0] && e.touches[0].clientY > (e.touches[0] && 0)) ||
+                (atBottom && e.touches[0] && e.touches[0].clientY < (e.touches[0] && window.innerHeight))) {
+                return;
+            }
+            if (atTop || atBottom) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
         // ==================== FOUNDER PROFILE POPUP ====================
 
         function openFounderPopup() {
-            // Close learn-more popup if open
-            if (popupOverlay.classList.contains('active')) {
-                popupOverlay.classList.remove('active');
-                popupOverlay.setAttribute('aria-hidden', 'true');
-            }
+            // Close all other full popups
+            closeAllFullPopups();
 
             lockBodyScroll();
 
@@ -2061,11 +2722,7 @@ title="Email Us">
 
         // ==================== AD POPUP (Half-Screen, White Background) ====================
 
-        /**
-         * Open the ad popup
-         */
         function openAdPopup() {
-            // Only open if not already open
             if (adPopupOverlay.classList.contains('active')) {
                 return;
             }
@@ -2074,18 +2731,13 @@ title="Email Us">
             adPopupOverlay.setAttribute('aria-hidden', 'false');
             adPopupCard.scrollTop = 0;
 
-            // Focus the close button for accessibility
             setTimeout(function() {
                 btnAdClose.focus({ preventScroll: true });
             }, 400);
 
-            // Push history state for ad popup
             pushPopupState({ popupOpen: 'adPopup' });
         }
 
-        /**
-         * Close the ad popup - ONLY callable via the × button
-         */
         function closeAdPopup() {
             if (!adPopupOverlay.classList.contains('active')) {
                 return;
@@ -2094,34 +2746,25 @@ title="Email Us">
             adPopupOverlay.classList.remove('active');
             adPopupOverlay.setAttribute('aria-hidden', 'true');
 
-            // Clean up history state if applicable
             if (history.state && history.state.popupOpen === 'adPopup') {
                 history.back();
             }
         }
 
-        // Close button click handler - THE ONLY WAY TO CLOSE THE AD
         btnAdClose.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             closeAdPopup();
         });
 
-        // Prevent closing ad popup by clicking the overlay background
         adPopupOverlay.addEventListener('click', function(e) {
-            // Only close if clicking directly on the overlay background
-            // BUT per requirements, the ad popup can ONLY be closed via the × button
-            // So we do NOT close on overlay click
             e.stopPropagation();
-            // Intentionally do nothing - overlay click does NOT close the ad
         });
 
-        // Prevent clicks on the card from bubbling to overlay
         adPopupCard.addEventListener('click', function(e) {
             e.stopPropagation();
         });
 
-        // Prevent touch scrolling from accidentally closing
         adPopupCard.addEventListener('touchmove', function(e) {
             const scrollTop = adPopupCard.scrollTop;
             const scrollHeight = adPopupCard.scrollHeight;
@@ -2149,10 +2792,9 @@ title="Email Us">
             adPopupTimer = setTimeout(function() {
                 adPopupShown = true;
                 openAdPopup();
-            }, 15000); // 15 seconds after page load
+            }, 15000);
         }
 
-        // Start the timer when the page is fully loaded
         if (document.readyState === 'complete') {
             scheduleAdPopup();
         } else {
@@ -2165,17 +2807,18 @@ title="Email Us">
 
         // Handle popstate (browser back button)
         window.addEventListener('popstate', function(e) {
-            // Check ad popup first (highest z-index, closes first)
             if (adPopupOverlay.classList.contains('active')) {
                 closeAdPopup();
                 return;
             }
-            // Then check founder popup
             if (founderPopupOverlay.classList.contains('active')) {
                 closeFounderPopup();
                 return;
             }
-            // Then check learn-more popup
+            if (admissionPopupOverlay.classList.contains('active')) {
+                closeAdmissionPopup();
+                return;
+            }
             if (popupOverlay.classList.contains('active')) {
                 closeLearnMorePopup();
                 return;
@@ -2183,15 +2826,18 @@ title="Email Us">
         });
 
         // Keyboard support - Escape key
-        // NOTE: The ad popup is intentionally NOT closed by Escape.
-        // Only the × button closes the ad popup per requirements.
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                // Ad popup is NOT closed by Escape - skip it intentionally
                 if (founderPopupOverlay.classList.contains('active')) {
                     e.preventDefault();
                     closeFounderPopup();
                     if (history.state && history.state.popupOpen === 'founderProfile') {
+                        history.back();
+                    }
+                } else if (admissionPopupOverlay.classList.contains('active')) {
+                    e.preventDefault();
+                    closeAdmissionPopup();
+                    if (history.state && history.state.popupOpen === 'admissionDetails') {
                         history.back();
                     }
                 } else if (popupOverlay.classList.contains('active')) {
@@ -2201,13 +2847,14 @@ title="Email Us">
                         history.back();
                     }
                 }
-                // Ad popup remains open even if Escape is pressed - by design
             }
         });
 
         // Initial setup
         popupOverlay.classList.remove('active');
         popupOverlay.setAttribute('aria-hidden', 'true');
+        admissionPopupOverlay.classList.remove('active');
+        admissionPopupOverlay.setAttribute('aria-hidden', 'true');
         founderPopupOverlay.classList.remove('active');
         founderPopupOverlay.setAttribute('aria-hidden', 'true');
         adPopupOverlay.classList.remove('active');
@@ -2219,6 +2866,7 @@ title="Email Us">
         console.log('© 2026 RK Chess Academy. All rights reserved.');
         console.log('© 2026 VeeJe Business and Innovations Group (Veebig). All rights reserved.');
         console.log('Ad popup scheduled: will appear 15 seconds after page load.');
+        console.log('Admission Details popup ready.');
     })();
 </script>
 
