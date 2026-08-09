@@ -46,6 +46,9 @@
             --button-achievements-bg: #2a0a0a;
             --button-achievements-hover: #3d1515;
             --button-achievements-active: #1e0808;
+            --button-events-bg: #0a2e2a;
+            --button-events-hover: #0f3d36;
+            --button-events-active: #081e1a;
             --overlay-bg: rgba(0, 0, 0, 0.97);
             --popup-card-bg: #0a0a0a;
             --border-thick-white: #ffffff;
@@ -77,6 +80,10 @@
             --admission-border: #2a2a2a;
             --admission-highlight: #1a2a1a;
             --achievements-accent: #d4785c;
+            --events-card-bg: #0f1a18;
+            --events-border: #1a3a34;
+            --events-accent: #5cc9b0;
+            --events-accent-gold: #c9973a;
         }
 
         * {
@@ -127,7 +134,6 @@
             background: #666666;
         }
 
-        /* News Ticker */
         .news-ticker {
             width: 100%;
             background-color: var(--highlight-dark-green);
@@ -168,7 +174,6 @@
             }
         }
 
-        /* Main Container */
         .main-container {
             width: 100%;
             max-width: 600px;
@@ -183,7 +188,6 @@
             min-height: calc(100dvh - 42px);
         }
 
-        /* Logo */
         .logo-wrapper {
             width: 140px;
             height: 140px;
@@ -213,7 +217,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Animated Gradient Header */
         .gradient-header {
             font-size: 1.65rem;
             font-weight: 700;
@@ -256,7 +259,6 @@
             }
         }
 
-        /* Welcome Text */
         .welcome-text {
             font-size: 0.95rem;
             font-weight: 400;
@@ -269,7 +271,6 @@
             letter-spacing: 0.1px;
         }
 
-        /* Highlight Box */
         .highlight-box {
             background-color: var(--highlight-dark-green);
             border: 1.5px solid var(--highlight-dark-green-border);
@@ -291,7 +292,6 @@
             margin: 0;
         }
 
-        /* Buttons Core */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -361,7 +361,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Admission Details Button */
         .btn-admission-details {
             background-color: var(--button-admission-bg);
             box-shadow: 0 4px 14px rgba(26, 10, 46, 0.5);
@@ -386,7 +385,6 @@
             color: #c9973a;
         }
 
-        /* Our Achievements Button */
         .btn-achievements {
             background-color: var(--button-achievements-bg);
             box-shadow: 0 4px 14px rgba(42, 10, 10, 0.5);
@@ -411,7 +409,6 @@
             color: #d4785c;
         }
 
-        /* Founder's Profile Button */
         .btn-founder-profile {
             background-color: var(--button-founder-bg);
             box-shadow: 0 4px 14px rgba(26, 26, 46, 0.5);
@@ -436,7 +433,272 @@
             color: #c9973a;
         }
 
-        /* Social Media Section */
+        .btn-events {
+            background-color: var(--button-events-bg);
+            box-shadow: 0 4px 14px rgba(10, 46, 42, 0.5);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+            padding: 14px 28px;
+            letter-spacing: 0.4px;
+            border: 1.5px solid rgba(80, 180, 160, 0.45);
+            gap: 7px;
+        }
+        .btn-events:hover {
+            background-color: var(--button-events-hover);
+            box-shadow: 0 6px 20px rgba(15, 61, 54, 0.65);
+            border-color: rgba(80, 180, 160, 0.7);
+        }
+        .btn-events:active {
+            background-color: var(--button-events-active);
+            border-color: rgba(80, 180, 160, 0.8);
+        }
+        .btn-events i {
+            font-size: 0.85rem;
+            color: #5cc9b0;
+        }
+
+        .events-dropdown-container {
+            width: 100%;
+            max-width: 520px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 0;
+            position: relative;
+        }
+        .events-dropdown-content {
+            width: 100%;
+            max-width: 520px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), margin 0.45s ease, padding 0.45s ease;
+            background: var(--events-card-bg);
+            border: 1.5px solid var(--events-border);
+            border-radius: 14px;
+            margin-bottom: 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: max-height 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), margin 0.45s ease, padding 0.45s ease, opacity 0.3s ease;
+        }
+        .events-dropdown-container.active .events-dropdown-content {
+            max-height: 2200px;
+            margin-bottom: 18px;
+            opacity: 1;
+        }
+        .events-dropdown-inner {
+            padding: 20px 18px 22px;
+        }
+        .events-section {
+            width: 100%;
+            margin-bottom: 18px;
+        }
+        .events-section:last-child {
+            margin-bottom: 0;
+        }
+        .events-section-heading {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #5cc9b0;
+            text-align: center;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1.5px solid rgba(92, 201, 176, 0.25);
+        }
+        .events-section-heading.past {
+            color: #888888;
+            border-bottom-color: rgba(136, 136, 136, 0.25);
+        }
+        .event-poster-wrapper {
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto 16px;
+            aspect-ratio: 2 / 3;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #1a1a1a;
+            border: 2px solid #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        }
+        .event-poster-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .event-poster-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #666666;
+            font-size: 0.72rem;
+            text-align: center;
+            padding: 16px;
+            letter-spacing: 0.3px;
+            line-height: 1.5;
+            pointer-events: none;
+            background: #1a1a1a;
+        }
+        .event-poster-placeholder i {
+            font-size: 2rem;
+            color: #555;
+            margin-bottom: 6px;
+        }
+        .event-academy-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #5cc9b0;
+            text-align: center;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .event-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            letter-spacing: 0.1px;
+            line-height: 1.35;
+            margin-bottom: 10px;
+        }
+        .event-detail-row {
+            font-size: 0.82rem;
+            color: #cccccc;
+            text-align: center;
+            line-height: 1.6;
+            letter-spacing: 0.1px;
+            margin-bottom: 3px;
+        }
+        .event-detail-row strong {
+            color: #ffffff;
+        }
+        .event-detail-highlight {
+            font-size: 0.82rem;
+            color: #5cc9b0;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            margin: 6px 0 12px;
+        }
+        .event-registration-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #dddddd;
+            text-align: center;
+            letter-spacing: 0.2px;
+            margin-bottom: 8px;
+        }
+        .btn-event-register {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #b8860b, #c9973a, #d4a843);
+            color: #000000;
+            border: none;
+            border-radius: 24px;
+            padding: 13px 26px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            text-decoration: none;
+            min-height: 44px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 16px rgba(200, 150, 50, 0.4);
+            position: relative;
+            overflow: hidden;
+            outline: none;
+            -webkit-user-select: none;
+            user-select: none;
+            white-space: nowrap;
+            width: auto;
+            min-width: 180px;
+            margin: 0 auto 12px;
+        }
+        .btn-event-register:hover {
+            background: linear-gradient(135deg, #c9973a, #d4a843, #e0b84c);
+            box-shadow: 0 6px 22px rgba(200, 150, 50, 0.55);
+            transform: translateY(-1px);
+        }
+        .btn-event-register:active {
+            background: linear-gradient(135deg, #a67c2a, #b8860b, #c9973a);
+            transform: scale(0.96);
+            box-shadow: 0 2px 8px rgba(180, 130, 40, 0.5);
+            transition: transform 0.08s ease;
+        }
+        .btn-event-register:focus-visible {
+            outline: 2px solid rgba(255, 255, 255, 0.8);
+            outline-offset: 3px;
+        }
+        .btn-event-register i {
+            font-size: 0.8rem;
+            color: #000000;
+        }
+        .event-register-btn-row {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .event-contact-info {
+            font-size: 0.78rem;
+            color: #bbbbbb;
+            text-align: center;
+            line-height: 1.55;
+            letter-spacing: 0.1px;
+            margin-top: 2px;
+        }
+        .event-contact-info strong {
+            color: #dddddd;
+        }
+        .event-tagline {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #c8e6c9;
+            text-align: center;
+            letter-spacing: 0.2px;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        .events-divider {
+            width: 60%;
+            max-width: 300px;
+            height: 0;
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 16px auto;
+        }
+        .events-no-past {
+            font-size: 0.82rem;
+            color: #888888;
+            text-align: center;
+            letter-spacing: 0.2px;
+            line-height: 1.5;
+            padding: 10px 0;
+            font-style: italic;
+        }
+        .chevron-icon {
+            transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-size: 0.75rem;
+        }
+        .events-dropdown-container.active .chevron-icon {
+            transform: rotate(180deg);
+        }
+
         .social-section-title {
             font-size: 0.9rem;
             font-weight: 600;
@@ -532,7 +794,6 @@
             gap: 4px;
         }
 
-        /* Chat & Email Buttons */
         .btn-chat {
             background-color: #0d5c2e;
             box-shadow: 0 4px 14px rgba(13, 92, 46, 0.4);
@@ -568,7 +829,6 @@
             font-size: 1.2rem;
         }
 
-        /* Register Now Button (inside popup) */
         .btn-register-now {
             display: inline-flex;
             align-items: center;
@@ -620,7 +880,6 @@
             color: #000000;
         }
 
-        /* Getting Started Button (Admission Popup) */
         .btn-getting-started {
             display: inline-flex;
             align-items: center;
@@ -672,7 +931,6 @@
             color: #ffffff;
         }
 
-        /* Thick White Border */
         .thick-white-border {
             width: 85%;
             max-width: 450px;
@@ -684,7 +942,6 @@
             border-radius: 2px;
         }
 
-        /* Legal Section */
         .legal-section {
             width: 100%;
             max-width: 520px;
@@ -732,7 +989,6 @@
             margin-bottom: 2px;
         }
 
-        /* Attribution */
         .attribution-section {
             width: 100%;
             max-width: 520px;
@@ -758,7 +1014,6 @@
             color: #ffffff;
         }
 
-        /* ==================== FULL SCREEN POPUP (Learn More) ==================== */
         .popup-overlay {
             position: fixed;
             top: 0;
@@ -874,7 +1129,6 @@
             gap: 6px;
         }
 
-        /* ==================== ADMISSION DETAILS POPUP ==================== */
         .admission-popup-overlay {
             position: fixed;
             top: 0;
@@ -938,7 +1192,6 @@
             font-style: italic;
         }
 
-        /* Admission Poster */
         .admission-poster-wrapper {
             width: 100%;
             max-width: 380px;
@@ -986,7 +1239,6 @@
             color: #555;
         }
 
-        /* Admission Info Cards */
         .admission-info-card {
             width: 100%;
             max-width: 500px;
@@ -1041,7 +1293,6 @@
             font-weight: 600;
         }
 
-        /* Key Benefits Grid */
         .admission-benefits-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1071,7 +1322,6 @@
             margin-bottom: 6px;
         }
 
-        /* Contact Card */
         .admission-contact-card {
             width: 100%;
             max-width: 500px;
@@ -1131,7 +1381,6 @@
             }
         }
 
-        /* Academy Vision */
         .admission-vision-card {
             width: 100%;
             max-width: 500px;
@@ -1166,7 +1415,6 @@
             margin-top: 6px;
         }
 
-        /* Admission Back Button */
         .admission-back-btn-wrapper {
             position: sticky;
             bottom: 16px;
@@ -1185,7 +1433,6 @@
             gap: 6px;
         }
 
-        /* ==================== OUR ACHIEVEMENTS POPUP ==================== */
         .achievements-popup-overlay {
             position: fixed;
             top: 0;
@@ -1304,7 +1551,6 @@
             gap: 6px;
         }
 
-        /* ==================== FOUNDER PROFILE POPUP ==================== */
         .founder-popup-overlay {
             position: fixed;
             top: 0;
@@ -1343,7 +1589,6 @@
             overscroll-behavior: contain;
         }
 
-        /* Wikipedia-style Infobox */
         .wiki-infobox {
             width: 100%;
             max-width: 500px;
@@ -1435,7 +1680,6 @@
             vertical-align: -1px;
         }
 
-        /* Founder Content Sections */
         .founder-section {
             width: 100%;
             max-width: 500px;
@@ -1459,7 +1703,6 @@
             margin-bottom: 8px;
         }
 
-        /* Verification Box */
         .verification-box {
             width: 100%;
             max-width: 500px;
@@ -1492,7 +1735,6 @@
             font-style: italic;
         }
 
-        /* Founder Back Button */
         .founder-back-btn-wrapper {
             position: sticky;
             bottom: 16px;
@@ -1511,7 +1753,6 @@
             gap: 6px;
         }
 
-        /* Lock body scroll */
         body.no-scroll {
             overflow: hidden;
             position: fixed;
@@ -1519,7 +1760,6 @@
             height: 100%;
         }
 
-        /* ==================== AD POPUP (Half-Screen, White Background) ==================== */
         .ad-popup-overlay {
             position: fixed;
             top: 0;
@@ -1704,7 +1944,6 @@
             line-height: 1.3;
         }
 
-        /* Green Register Button inside Ad */
         .btn-ad-register {
             display: inline-flex;
             align-items: center;
@@ -1755,7 +1994,6 @@
             color: #ffffff;
         }
 
-        /* ==================== RESPONSIVE ==================== */
         @media screen and (min-width: 420px) {
             .gradient-header {
                 font-size: 1.85rem;
@@ -1782,7 +2020,8 @@
                 padding: 16px 36px;
             }
             .btn-admission-details,
-            .btn-achievements {
+            .btn-achievements,
+            .btn-events {
                 font-size: 1rem;
                 padding: 15px 30px;
             }
@@ -1837,6 +2076,12 @@
             .admission-benefit-item {
                 font-size: 0.82rem;
                 padding: 14px 16px;
+            }
+            .event-poster-wrapper {
+                max-width: 320px;
+            }
+            .event-title {
+                font-size: 1.15rem;
             }
         }
 
@@ -1919,6 +2164,15 @@
             }
             .admission-info-list li {
                 font-size: 0.9rem;
+            }
+            .event-poster-wrapper {
+                max-width: 350px;
+            }
+            .event-title {
+                font-size: 1.25rem;
+            }
+            .events-dropdown-inner {
+                padding: 24px 22px 26px;
             }
         }
 
@@ -2043,6 +2297,26 @@
                 border-radius: 22px;
                 max-width: 250px;
             }
+            .event-poster-wrapper {
+                max-width: 200px;
+                border-radius: 8px;
+            }
+            .event-title {
+                font-size: 0.9rem;
+            }
+            .event-detail-row {
+                font-size: 0.72rem;
+            }
+            .events-dropdown-inner {
+                padding: 14px 12px 16px;
+            }
+            .btn-event-register {
+                font-size: 0.75rem;
+                padding: 10px 20px;
+                min-height: 38px;
+                border-radius: 20px;
+                min-width: 150px;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -2089,12 +2363,17 @@
             .admission-status-badge {
                 animation: none;
             }
+            .events-dropdown-content {
+                transition: max-height 0.1s ease, margin 0.1s ease, opacity 0.1s ease;
+            }
+            .chevron-icon {
+                transition: transform 0.1s ease;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- News Ticker -->
     <div class="news-ticker">
         <div class="ticker-content">
             <img src="rklogo.jpg" alt="RK Chess Academy Logo" class="ticker-logo" onerror="this.style.display='none';">
@@ -2102,10 +2381,8 @@
         </div>
     </div>
 
-    <!-- ==================== MAIN PAGE ==================== -->
     <main class="main-container" id="mainPage">
 
-        <!-- Logo -->
         <div class="logo-wrapper" aria-label="RK Chess Academy Logo">
             <img
             src="rklogo.jpg"
@@ -2118,84 +2395,136 @@
             <span class="logo-placeholder-fallback" style="display:none;">RK Chess<br>Academy<br>Logo</span>
         </div>
 
-        <!-- Animated Gradient Header -->
         <h1 class="gradient-header">Welcome to RK Chess Academy!</h1>
 
-        <!-- Welcome Text -->
         <p class="welcome-text">
             Unlock your true potential and master the art of chess with expert guidance. Whether you are taking your very first steps or preparing for competitive tournaments, we provide structured training to sharpen your tactical vision and strategic thinking. Join our vibrant community of passionate learners and elevate your game to the next level.
         </p>
 
-        <!-- Highlight Box -->
         <div class="highlight-box">
             <p class="highlight-text">Master the Mind, Make Your Move!</p>
         </div>
 
-        <!-- Learn More Button -->
         <button class="btn btn-learn-more" id="btnLearnMore" aria-label="Learn more about RK Chess Academy" title="Learn More">
             Learn more
             <i class="fas fa-arrow-right" style="font-size:0.85rem;"></i>
         </button>
 
-        <!-- Admission Details Button -->
         <button class="btn btn-admission-details" id="btnAdmissionDetails" aria-label="View Admission Details" title="Admission Details">
             <i class="fas fa-graduation-cap"></i> Admission Details
             <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
         </button>
 
-        <!-- Our Achievements Button -->
-        <button class="btn btn-achievements" id="btnAchievements" aria-label="View Our Achievements" title="Our Achievements">
-            <i class="fas fa-trophy"></i> Our Achievements
-            <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
-        </button>
+        <div class="events-dropdown-container" id="eventsDropdownContainer">
+            <button class="btn btn-events" id="btnEvents" aria-label="Toggle Our Events dropdown" title="Our Events">
+                <i class="fas fa-calendar-alt"></i> Our Events
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </button>
+            <div class="events-dropdown-content" id="eventsDropdownContent">
+                <div class="events-dropdown-inner">
 
-        <!-- Founder's Profile Button -->
-        <button class="btn btn-founder-profile" id="btnFounderProfile" aria-label="View Founder's Profile" title="Founder's Profile">
-            <i class="fas fa-user"></i> Founder's Profile
-            <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
-        </button>
+                    <div class="events-section">
+                        <h3 class="events-section-heading">Our Upcoming Events</h3>
 
-        <!-- Our Social Media Profiles -->
-        <p class="social-section-title">Our Social Media Profiles</p>
-        <div class="social-icons-row">
-            <div class="social-item-wrapper">
-                <a href="https://youtube.com/@rkchessacademy?si=HS_Jbkv7FiNM440h"
-                class="social-icon-btn youtube"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="RK Chess Academy YouTube Channel"
-                title="YouTube Channel">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <span class="social-label-mini">YouTube</span>
+                        <div class="event-poster-wrapper" aria-label="Event Poster for Independence Day Chess Tournament">
+                            <img
+                            src="imgevent1.jpg"
+                            alt="80th Independence Day Online Chess Tournament 2026 Poster"
+                            loading="lazy"
+                            onerror="this.style.display='none';this.parentElement.querySelector('.event-poster-placeholder').style.display='flex';"
+                            width="280"
+                            height="420"
+                            >
+                            <div class="event-poster-placeholder" style="display:none;">
+                                <i class="fas fa-image"></i>
+                                <span>Event Poster<br><small style="font-size:0.6rem;">(imgevent1.jpg - 1024x1536)</small></span>
+                            </div>
+                        </div>
+
+                        <p class="event-academy-label">RK CHESS ACADEMY</p>
+                        <p class="event-title">80th Independence Day Online Chess Tournament 2026</p>
+                        <p class="event-detail-row"><strong>16 August 2026</strong> | Sunday</p>
+                        <p class="event-detail-row">Online | Entry Fee Rs.50</p>
+                        <p class="event-detail-highlight">Visually Impaired Students - FREE ENTRY</p>
+
+                        <p class="event-registration-label">Registration:</p>
+                        <div class="event-register-btn-row">
+                            <a href="https://form.svhrt.com/6a76a4d677f2b4f4735f45ae"
+                            class="btn-event-register"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Register for the Independence Day Chess Tournament"
+                        title="Register Now">
+                        Register Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <p class="event-contact-info">
+                    <strong>Registration or more information:</strong><br>
+                    WhatsApp / Call: 9539020511
+                </p>
+                <p class="event-tagline">Join & Celebrate Independence Day with Chess!</p>
+            </div>
+
+            <hr class="events-divider" aria-hidden="true">
+
+            <div class="events-section">
+                <h3 class="events-section-heading past">Our Past Events</h3>
+                <p class="events-no-past">No past events available to show yet</p>
+            </div>
         </div>
-
-        <div class="social-item-wrapper">
-            <a href="https://whatsapp.com/channel/0029VbB3uSFHrDZj7mjbar0t"
-            class="social-icon-btn whatsapp"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="RK Chess Academy WhatsApp Channel"
-            title="WhatsApp Channel">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <span class="social-label-mini">WhatsApp Channel</span>
     </div>
+</div>
 
+<button class="btn btn-achievements" id="btnAchievements" aria-label="View Our Achievements" title="Our Achievements">
+    <i class="fas fa-trophy"></i> Our Achievements
+    <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+</button>
+
+<button class="btn btn-founder-profile" id="btnFounderProfile" aria-label="View Founder's Profile" title="Founder's Profile">
+    <i class="fas fa-user"></i> Founder's Profile
+    <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+</button>
+
+<p class="social-section-title">Our Social Media Profiles</p>
+<div class="social-icons-row">
     <div class="social-item-wrapper">
-        <a href="https://www.instagram.com/rk.chess_academy?igsh=bG9kN2NxY283NGx1"
-        class="social-icon-btn instagram"
+        <a href="https://youtube.com/@rkchessacademy?si=HS_Jbkv7FiNM440h"
+        class="social-icon-btn youtube"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="RK Chess Academy Instagram Profile"
-        title="Instagram">
-        <i class="fab fa-instagram"></i>
+        aria-label="RK Chess Academy YouTube Channel"
+        title="YouTube Channel">
+        <i class="fab fa-youtube"></i>
     </a>
-    <span class="social-label-mini">Instagram</span>
+    <span class="social-label-mini">YouTube</span>
+</div>
+
+<div class="social-item-wrapper">
+    <a href="https://whatsapp.com/channel/0029VbB3uSFHrDZj7mjbar0t"
+    class="social-icon-btn whatsapp"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="RK Chess Academy WhatsApp Channel"
+    title="WhatsApp Channel">
+    <i class="fab fa-whatsapp"></i>
+</a>
+<span class="social-label-mini">WhatsApp Channel</span>
+</div>
+
+<div class="social-item-wrapper">
+    <a href="https://www.instagram.com/rk.chess_academy?igsh=bG9kN2NxY283NGx1"
+    class="social-icon-btn instagram"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="RK Chess Academy Instagram Profile"
+    title="Instagram">
+    <i class="fab fa-instagram"></i>
+</a>
+<span class="social-label-mini">Instagram</span>
 </div>
 </div>
 
-<!-- Chat With Us Button -->
 <a href="https://wa.me/919539020511"
 class="btn btn-chat"
 target="_blank"
@@ -2205,7 +2534,6 @@ title="Chat With Us on WhatsApp">
 <i class="fab fa-whatsapp"></i> Chat With Us
 </a>
 
-<!-- Email Us Button -->
 <a href="mailto:rkchessacademy83@gmail.com"
 class="btn btn-email"
 aria-label="Email RK Chess Academy"
@@ -2213,10 +2541,8 @@ title="Email Us">
 <i class="fas fa-envelope"></i> Email Us
 </a>
 
-<!-- Thick White Border Line -->
 <hr class="thick-white-border" aria-hidden="true">
 
-<!-- Legal Information Section -->
 <section class="legal-section">
     <h2 class="legal-heading">LEGAL INFORMATIONS</h2>
     <p class="legal-text">
@@ -2230,12 +2556,11 @@ title="Email Us">
     </p>
 
     <div class="copyright-block">
-        <p class="copyright-text">© 2026 RK Chess Academy. All rights reserved.</p>
-        <p class="copyright-text">© 2026 VeeJe Business and Innovations Group (Veebig). All rights reserved.</p>
+        <p class="copyright-text">&copy; 2026 RK Chess Academy. All rights reserved.</p>
+        <p class="copyright-text">&copy; 2026 VeeJe Business and Innovations Group (Veebig). All rights reserved.</p>
     </div>
 </section>
 
-<!-- UI Asset Attribution -->
 <section class="attribution-section">
     <p class="attribution-text">
         <strong>UI Asset Attribution:</strong> Platform and UI icons (YouTube, WhatsApp, Instagram, Email) used on this website are provided by
@@ -2245,7 +2570,6 @@ title="Email Us">
 </section>
 </main>
 
-<!-- ==================== LEARN MORE POPUP ==================== -->
 <div class="popup-overlay" id="popupOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="popupHeading">
     <div class="popup-content-wrapper" id="popupContentWrapper">
 
@@ -2280,12 +2604,10 @@ title="Email Us">
             Join a supportive, active network of chess enthusiasts where you can practice regularly, play matches, and continuously elevate your game.
         </p>
 
-        <!-- Popup Tagline -->
         <div class="popup-tagline">
             Master the Mind, Make Your Move!
         </div>
 
-        <!-- Register Now! Button -->
         <a href="https://form.svhrt.com/6a278740950484b9aff96257"
         class="btn-register-now"
         target="_blank"
@@ -2296,7 +2618,6 @@ title="Email Us">
         <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
     </a>
 
-    <!-- Sticky Back to Home Button -->
     <div class="popup-back-btn-wrapper">
         <button class="btn btn-back-home" id="btnBackHome" aria-label="Back to Home" title="Back to Home">
             <i class="fas fa-arrow-left"></i> Back to Home
@@ -2305,15 +2626,12 @@ title="Email Us">
 </div>
 </div>
 
-<!-- ==================== ADMISSION DETAILS POPUP ==================== -->
 <div class="admission-popup-overlay" id="admissionPopupOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="admissionPopupHeading">
     <div class="admission-popup-wrapper" id="admissionPopupWrapper">
 
-        <!-- Admission Heading -->
         <h2 class="admission-heading" id="admissionPopupHeading">ADMISSION OPEN FOR NEW BATCH 2026-27</h2>
         <p class="admission-subheading">"Your Chess Journey Starts Here!"</p>
 
-        <!-- Admission Poster Placeholder -->
         <div class="admission-poster-wrapper" aria-label="RK Chess Academy Admission Poster">
             <img
             src="rkcaposter.jpg"
@@ -2325,25 +2643,23 @@ title="Email Us">
             >
             <div class="admission-poster-placeholder" style="display:none;">
                 <i class="fas fa-image"></i>
-                <span>RK Chess Academy<br>Admission Poster<br><small style="font-size:0.65rem;">(rkcaposter.jpg — 1024×1536)</small></span>
+                <span>RK Chess Academy<br>Admission Poster<br><small style="font-size:0.65rem;">(rkcaposter.jpg - 1024x1536)</small></span>
             </div>
         </div>
 
-        <!-- Program Details Card -->
         <div class="admission-info-card">
-            <h3>📋 PROGRAM DETAILS</h3>
+            <h3>PROGRAM DETAILS</h3>
             <ul class="admission-info-list">
                 <li><i class="fas fa-calendar-check"></i> <span><strong>Class Frequency:</strong> Weekly 2 Classes (Regular &amp; Consistent Learning)</span></li>
                 <li><i class="fas fa-clock"></i> <span><strong>Class Duration:</strong> 1 Hour per class</span></li>
                 <li><i class="fas fa-laptop-house"></i> <span><strong>Mode of Learning:</strong> Online Classes (Live &amp; Interactive)</span></li>
-                <li><i class="fas fa-indian-rupee-sign"></i> <span><strong>Fee Structure:</strong> ₹100 per class</span></li>
+                <li><i class="fas fa-indian-rupee-sign"></i> <span><strong>Fee Structure:</strong> Rs.100 per class</span></li>
                 <li><i class="fas fa-users"></i> <span><strong>Eligibility:</strong> All levels welcome (Beginners to Advanced Players)</span></li>
             </ul>
         </div>
 
-        <!-- What We Offer Card -->
         <div class="admission-info-card">
-            <h3>🎯 WHAT WE OFFER</h3>
+            <h3>WHAT WE OFFER</h3>
             <ul class="admission-info-list">
                 <li><i class="fas fa-chalkboard-teacher"></i> <span><strong>Expert Coaching:</strong> Learn from experienced &amp; dedicated coaches.</span></li>
                 <li><i class="fas fa-chart-line"></i> <span><strong>Improve Every Day:</strong> Enhance your tactics, strategy, focus &amp; confidence.</span></li>
@@ -2352,9 +2668,8 @@ title="Email Us">
             </ul>
         </div>
 
-        <!-- Key Benefits of Chess -->
         <div class="admission-info-card">
-            <h3>🧠 KEY BENEFITS OF CHESS</h3>
+            <h3>KEY BENEFITS OF CHESS</h3>
             <div class="admission-benefits-grid">
                 <div class="admission-benefit-item">
                     <i class="fas fa-brain"></i> Boosts IQ &amp; Concentration
@@ -2374,51 +2689,45 @@ title="Email Us">
             </div>
         </div>
 
-        <!-- Contact & Registration Card -->
         <div class="admission-contact-card">
-            <h3>📞 CONTACT &amp; REGISTRATION</h3>
+            <h3>CONTACT &amp; REGISTRATION</h3>
             <p class="admission-contact-row">
                 <strong>WhatsApp:</strong> <a href="https://wa.me/919539020511" target="_blank" rel="noopener noreferrer">+91 9539020511</a>
             </p>
             <div class="admission-status-badge">
-                ⚡ Limited Seats Only. Register Now!
+                Limited Seats Only. Register Now!
             </div>
-            <!-- Getting Started Button -->
             <a href="https://form.svhrt.com/6a278740950484b9aff96257"
             class="btn-getting-started"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Get Started with RK Chess Academy"
-            title="GETTING STARTED">
-            <i class="fas fa-rocket"></i> GETTING STARTED
-            <i class="fas fa-arrow-right"></i>
-        </a>
-    </div>
+        title="GETTING STARTED">
+        <i class="fas fa-rocket"></i> GETTING STARTED
+        <i class="fas fa-arrow-right"></i>
+    </a>
+</div>
 
-    <!-- Academy Vision Card -->
-    <div class="admission-vision-card">
-        <h3>🌟 ACADEMY VISION</h3>
-        <p>We don't just teach chess, we build champions for life!</p>
-        <p>Be part of the RK Chess Academy family where passion meets purpose and players become champions.</p>
-        <p class="admission-vision-tagline">Think, Learn, Play, Win, Repeat.</p>
-    </div>
+<div class="admission-vision-card">
+    <h3>ACADEMY VISION</h3>
+    <p>We don't just teach chess, we build champions for life!</p>
+    <p>Be part of the RK Chess Academy family where passion meets purpose and players become champions.</p>
+    <p class="admission-vision-tagline">Think, Learn, Play, Win, Repeat.</p>
+</div>
 
-    <!-- Sticky Back to Home Button -->
-    <div class="admission-back-btn-wrapper">
-        <button class="btn btn-back-home-admission" id="btnBackHomeAdmission" aria-label="Back to Home" title="Back to Home">
-            <i class="fas fa-arrow-left"></i> Back to Home
-        </button>
-    </div>
+<div class="admission-back-btn-wrapper">
+    <button class="btn btn-back-home-admission" id="btnBackHomeAdmission" aria-label="Back to Home" title="Back to Home">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </button>
+</div>
 </div>
 </div>
 
-<!-- ==================== OUR ACHIEVEMENTS POPUP ==================== -->
 <div class="achievements-popup-overlay" id="achievementsPopupOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="achievementsPopupHeading">
     <div class="achievements-popup-wrapper" id="achievementsPopupWrapper">
 
         <h2 class="popup-heading" id="achievementsPopupHeading">Our Achievements</h2>
 
-        <!-- Achievement Image Placeholder -->
         <div class="achievement-image-wrapper" aria-label="Achievement photo of Ansh Sahay with GM Dibyendu Barua">
             <img
             src="achievement1.jpg"
@@ -2434,13 +2743,11 @@ title="Email Us">
             </div>
         </div>
 
-        <!-- Achievement Description -->
         <div class="achievement-description">
             <p>A proud and memorable moment for RK Chess Academy! Our talented student <strong>Ansh Sahay</strong> from West Bengal had the incredible honor of meeting India's second Chess Grandmaster, <strong>Dibyendu Barua</strong>. This inspiring encounter with one of the country's most respected chess legends is a testament to Ansh's dedication and passion for the game. It reflects the high standards and values that RK Chess Academy instills in all its students—building not only skilled players but also individuals who earn recognition from the giants of Indian chess.</p>
             <p>We extend our heartfelt wishes to Ansh for his continued growth and success. May this remarkable experience fuel his ambition and lead him to achieve even greater milestones in his chess journey. The academy is incredibly proud and looks forward to witnessing many more such proud moments in the future.</p>
         </div>
 
-        <!-- Sticky Back to Home Button -->
         <div class="achievements-back-btn-wrapper">
             <button class="btn btn-back-home-achievements" id="btnBackHomeAchievements" aria-label="Back to Home" title="Back to Home">
                 <i class="fas fa-arrow-left"></i> Back to Home
@@ -2449,23 +2756,17 @@ title="Email Us">
     </div>
 </div>
 
-<!-- ==================== FOUNDER PROFILE POPUP ==================== -->
 <div class="founder-popup-overlay" id="founderPopupOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="founderPopupHeading">
     <div class="founder-popup-wrapper" id="founderPopupWrapper">
 
-        <!-- Popup Heading -->
         <h2 class="popup-heading" id="founderPopupHeading" style="margin-bottom:20px;">Founder's Profile</h2>
 
-        <!-- Wikipedia-style Infobox -->
         <div class="wiki-infobox">
-            <!-- Infobox Header -->
             <div class="wiki-infobox-header">
                 <div class="wiki-name">Muhammed Ranish K</div>
                 <div class="wiki-designation">International FIDE Rated Player</div>
             </div>
-            <!-- Personal Info Sub-header -->
             <div class="wiki-infobox-subheader">PERSONAL INFO</div>
-            <!-- Infobox Body - Personal Info -->
             <div class="wiki-infobox-body">
                 <div class="wiki-infobox-row">
                     <span class="wiki-infobox-label">Full Name</span>
@@ -2473,18 +2774,17 @@ title="Email Us">
                 </div>
                 <div class="wiki-infobox-row">
                     <span class="wiki-infobox-label">Nationality</span>
-                    <span class="wiki-infobox-value">Indian <span class="wiki-flag-emoji">🇮🇳</span></span>
+                    <span class="wiki-infobox-value">Indian <span class="wiki-flag-emoji">&#127470;&#127475;</span></span>
                 </div>
                 <div class="wiki-infobox-row">
                     <span class="wiki-infobox-label">Years Active</span>
-                    <span class="wiki-infobox-value">2022 – Present</span>
+                    <span class="wiki-infobox-value">2022 - Present</span>
                 </div>
                 <div class="wiki-infobox-row">
                     <span class="wiki-infobox-label">Personal Email</span>
                     <span class="wiki-infobox-value"><a href="mailto:ranishchess@gmail.com">ranishchess@gmail.com</a></span>
                 </div>
             </div>
-            <!-- FIDE Profile Sub-header -->
             <div class="wiki-infobox-subheader">FIDE PROFILE</div>
             <div class="wiki-infobox-body">
                 <div class="wiki-infobox-row">
@@ -2497,16 +2797,15 @@ title="Email Us">
                 </div>
                 <div class="wiki-infobox-row">
                     <span class="wiki-infobox-label">FIDE Rating<br><span style="font-weight:400;font-size:0.7rem;color:#999;">(Current)</span></span>
-                    <span class="wiki-infobox-value"><strong>1602</strong> — 1<sup>st</sup> June 2026</span>
+                    <span class="wiki-infobox-value"><strong>1602</strong> - 1<sup>st</sup> June 2026</span>
                 </div>
                 <div class="wiki-infobox-row">
                     <span class="wiki-infobox-label">Peak Rating</span>
-                    <span class="wiki-infobox-value"><strong>1602</strong> — 1<sup>st</sup> June 2026</span>
+                    <span class="wiki-infobox-value"><strong>1602</strong> - 1<sup>st</sup> June 2026</span>
                 </div>
             </div>
         </div>
 
-        <!-- Description Section -->
         <div class="founder-section">
             <h3>About the Founder</h3>
             <p>
@@ -2520,7 +2819,6 @@ title="Email Us">
             </p>
         </div>
 
-        <!-- Verification Box -->
         <div class="verification-box">
             <div class="verification-icon">
                 <i class="fas fa-shield-halved"></i>
@@ -2531,7 +2829,6 @@ title="Email Us">
             </p>
         </div>
 
-        <!-- Sticky Back to Home Button -->
         <div class="founder-back-btn-wrapper">
             <button class="btn btn-back-home-founder" id="btnBackHomeFounder" aria-label="Back to Home" title="Back to Home">
                 <i class="fas fa-arrow-left"></i> Back to Home
@@ -2540,14 +2837,11 @@ title="Email Us">
     </div>
 </div>
 
-<!-- ==================== AD POPUP (Half-Screen, White Background) ==================== -->
 <div class="ad-popup-overlay" id="adPopupOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="adPopupHeading">
     <div class="ad-popup-card" id="adPopupCard">
 
-        <!-- Close Button (×) - Only way to close -->
-        <button class="ad-close-btn" id="btnAdClose" aria-label="Close advertisement" title="Close">×</button>
+        <button class="ad-close-btn" id="btnAdClose" aria-label="Close advertisement" title="Close">&times;</button>
 
-        <!-- Small RK Chess Academy Logo -->
         <div class="ad-logo-wrapper" aria-label="RK Chess Academy Logo">
             <img
             src="rklogo.jpg"
@@ -2560,16 +2854,12 @@ title="Email Us">
             <span class="ad-logo-placeholder-fallback" style="display:none;">RK<br>Logo</span>
         </div>
 
-        <!-- Ad Header -->
         <h2 class="ad-header" id="adPopupHeading">Welcome to RK Chess Academy!</h2>
 
-        <!-- Online Coaching Subtitle -->
         <p class="ad-subtitle">Online Coaching</p>
 
-        <!-- Price Description -->
-        <p class="ad-description">₹100/Hour</p>
+        <p class="ad-description">Rs.100/Hour</p>
 
-        <!-- Play Chess Image Placeholder -->
         <div class="ad-image-wrapper" aria-label="Chess coaching illustration">
             <img
             src="playchess.jpg"
@@ -2579,10 +2869,9 @@ title="Email Us">
             width="260"
             height="146"
             >
-            <span class="ad-image-placeholder-fallback" style="display:none;">🫗 Chess Coaching<br>Illustration</span>
+            <span class="ad-image-placeholder-fallback" style="display:none;">Chess Coaching<br>Illustration</span>
         </div>
 
-        <!-- Green Register Now! Button -->
         <a href="https://form.svhrt.com/6a278740950484b9aff96257"
         class="btn-ad-register"
         target="_blank"
@@ -2595,50 +2884,73 @@ title="Email Us">
 </div>
 </div>
 
-<!-- ==================== SCRIPTS ==================== -->
 <script>
     (function() {
         'use strict';
 
-        // DOM Elements - Main Page
         const btnLearnMore = document.getElementById('btnLearnMore');
         const btnAdmissionDetails = document.getElementById('btnAdmissionDetails');
         const btnAchievements = document.getElementById('btnAchievements');
         const btnFounderProfile = document.getElementById('btnFounderProfile');
+        const btnEvents = document.getElementById('btnEvents');
+        const eventsDropdownContainer = document.getElementById('eventsDropdownContainer');
+        const eventsDropdownContent = document.getElementById('eventsDropdownContent');
         const mainPage = document.getElementById('mainPage');
         const body = document.body;
 
-        // DOM Elements - Learn More Popup
         const popupOverlay = document.getElementById('popupOverlay');
         const popupContentWrapper = document.getElementById('popupContentWrapper');
         const btnBackHome = document.getElementById('btnBackHome');
 
-        // DOM Elements - Admission Details Popup
         const admissionPopupOverlay = document.getElementById('admissionPopupOverlay');
         const admissionPopupWrapper = document.getElementById('admissionPopupWrapper');
         const btnBackHomeAdmission = document.getElementById('btnBackHomeAdmission');
 
-        // DOM Elements - Achievements Popup
         const achievementsPopupOverlay = document.getElementById('achievementsPopupOverlay');
         const achievementsPopupWrapper = document.getElementById('achievementsPopupWrapper');
         const btnBackHomeAchievements = document.getElementById('btnBackHomeAchievements');
 
-        // DOM Elements - Founder Profile Popup
         const founderPopupOverlay = document.getElementById('founderPopupOverlay');
         const founderPopupWrapper = document.getElementById('founderPopupWrapper');
         const btnBackHomeFounder = document.getElementById('btnBackHomeFounder');
 
-        // DOM Elements - Ad Popup
         const adPopupOverlay = document.getElementById('adPopupOverlay');
         const adPopupCard = document.getElementById('adPopupCard');
         const btnAdClose = document.getElementById('btnAdClose');
 
-        // Track scroll position
         let savedScrollY = 0;
 
-        /**
-         * Check if any full-screen popup is currently open
-         */
+        function isEventsDropdownOpen() {
+            return eventsDropdownContainer.classList.contains('active');
+        }
+
+        function closeEventsDropdown() {
+            if (isEventsDropdownOpen()) {
+                eventsDropdownContainer.classList.remove('active');
+                eventsDropdownContent.style.maxHeight = '0';
+                eventsDropdownContent.style.marginBottom = '0';
+                eventsDropdownContent.style.opacity = '0';
+            }
+        }
+
+        function openEventsDropdown() {
+            if (!isEventsDropdownOpen()) {
+                eventsDropdownContainer.classList.add('active');
+                eventsDropdownContent.style.maxHeight = eventsDropdownContent.scrollHeight + 'px';
+                eventsDropdownContent.style.marginBottom = '18px';
+                eventsDropdownContent.style.opacity = '1';
+            }
+        }
+
+        function toggleEventsDropdown() {
+            if (isEventsDropdownOpen()) {
+                closeEventsDropdown();
+            } else {
+                closeAllFullPopups();
+                openEventsDropdown();
+            }
+        }
+
         function isAnyFullPopupOpen() {
             return popupOverlay.classList.contains('active') ||
                 admissionPopupOverlay.classList.contains('active') ||
@@ -2646,9 +2958,6 @@ title="Email Us">
                 founderPopupOverlay.classList.contains('active');
         }
 
-        /**
-         * Close all full-screen popups
-         */
         function closeAllFullPopups() {
             if (popupOverlay.classList.contains('active')) {
                 popupOverlay.classList.remove('active');
@@ -2668,9 +2977,6 @@ title="Email Us">
             }
         }
 
-        /**
-         * Lock body scroll
-         */
         function lockBodyScroll() {
             if (!body.classList.contains('no-scroll')) {
                 savedScrollY = window.scrollY;
@@ -2680,9 +2986,6 @@ title="Email Us">
             }
         }
 
-        /**
-         * Unlock body scroll
-         */
         function unlockBodyScroll() {
             if (!isAnyFullPopupOpen()) {
                 body.classList.remove('no-scroll');
@@ -2692,17 +2995,31 @@ title="Email Us">
             }
         }
 
-        /**
-         * Push history state for back button handling
-         */
         function pushPopupState(stateObj) {
             history.pushState(stateObj, '', window.location.href);
         }
 
-        // ==================== LEARN MORE POPUP ====================
+        btnEvents.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleEventsDropdown();
+        });
+
+        eventsDropdownContent.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', function(e) {
+            if (isEventsDropdownOpen()) {
+                if (!eventsDropdownContainer.contains(e.target)) {
+                    closeEventsDropdown();
+                }
+            }
+        });
 
         function openLearnMorePopup() {
             closeAllFullPopups();
+            closeEventsDropdown();
             lockBodyScroll();
 
             popupOverlay.classList.add('active');
@@ -2772,10 +3089,9 @@ title="Email Us">
             }
         }, { passive: false });
 
-        // ==================== ADMISSION DETAILS POPUP ====================
-
         function openAdmissionPopup() {
             closeAllFullPopups();
+            closeEventsDropdown();
             lockBodyScroll();
 
             admissionPopupOverlay.classList.add('active');
@@ -2845,10 +3161,9 @@ title="Email Us">
             }
         }, { passive: false });
 
-        // ==================== ACHIEVEMENTS POPUP ====================
-
         function openAchievementsPopup() {
             closeAllFullPopups();
+            closeEventsDropdown();
             lockBodyScroll();
 
             achievementsPopupOverlay.classList.add('active');
@@ -2918,10 +3233,9 @@ title="Email Us">
             }
         }, { passive: false });
 
-        // ==================== FOUNDER PROFILE POPUP ====================
-
         function openFounderPopup() {
             closeAllFullPopups();
+            closeEventsDropdown();
             lockBodyScroll();
 
             founderPopupOverlay.classList.add('active');
@@ -2991,8 +3305,6 @@ title="Email Us">
             }
         }, { passive: false });
 
-        // ==================== AD POPUP (Half-Screen, White Background) ====================
-
         function openAdPopup() {
             if (adPopupOverlay.classList.contains('active')) {
                 return;
@@ -3052,7 +3364,6 @@ title="Email Us">
             }
         }, { passive: false });
 
-        // ==================== 15-SECOND TIMER FOR AD POPUP ====================
         let adPopupTimer = null;
         let adPopupShown = false;
 
@@ -3074,9 +3385,6 @@ title="Email Us">
             });
         }
 
-        // ==================== GLOBAL HANDLERS ====================
-
-        // Handle popstate (browser back button)
         window.addEventListener('popstate', function(e) {
             if (adPopupOverlay.classList.contains('active')) {
                 closeAdPopup();
@@ -3098,9 +3406,12 @@ title="Email Us">
                 closeLearnMorePopup();
                 return;
             }
+            if (isEventsDropdownOpen()) {
+                closeEventsDropdown();
+                return;
+            }
         });
 
-        // Keyboard support - Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 if (founderPopupOverlay.classList.contains('active')) {
@@ -3127,11 +3438,13 @@ title="Email Us">
                     if (history.state && history.state.popupOpen === 'learnMore') {
                         history.back();
                     }
+                } else if (isEventsDropdownOpen()) {
+                    e.preventDefault();
+                    closeEventsDropdown();
                 }
             }
         });
 
-        // Initial setup
         popupOverlay.classList.remove('active');
         popupOverlay.setAttribute('aria-hidden', 'true');
         admissionPopupOverlay.classList.remove('active');
@@ -3142,15 +3455,20 @@ title="Email Us">
         founderPopupOverlay.setAttribute('aria-hidden', 'true');
         adPopupOverlay.classList.remove('active');
         adPopupOverlay.setAttribute('aria-hidden', 'true');
+        eventsDropdownContainer.classList.remove('active');
+        eventsDropdownContent.style.maxHeight = '0';
+        eventsDropdownContent.style.marginBottom = '0';
+        eventsDropdownContent.style.opacity = '0';
 
         console.log('RK Chess Academy SPA initialized successfully.');
-        console.log('Founder: Muhammed Ranish K — International FIDE Rated Player (FIDE Rating: 1602)');
+        console.log('Founder: Muhammed Ranish K - International FIDE Rated Player (FIDE Rating: 1602)');
         console.log('Developer: VeeJe Business and Innovations Group on behalf of RK Chess Academy');
         console.log('© 2026 RK Chess Academy. All rights reserved.');
         console.log('© 2026 VeeJe Business and Innovations Group (Veebig). All rights reserved.');
         console.log('Ad popup scheduled: will appear 15 seconds after page load.');
         console.log('Admission Details popup ready.');
         console.log('Our Achievements popup ready.');
+        console.log('Our Events dropdown ready.');
     })();
 </script>
 
